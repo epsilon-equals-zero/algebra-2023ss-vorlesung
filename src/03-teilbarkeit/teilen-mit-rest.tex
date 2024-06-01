@@ -47,6 +47,42 @@
 \end{proof}
 
 \begin{remark}
+    Es kann hilfreich sein, den euklidischen Algorithmus zu visualisieren. Dazu sei folgendes Diagramm gegeben:
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \node (b) at (0,0) {$b$};
+            \node (a) at (10,0) {$a$};
+            \node (r1) at (0,-1) {$a$};
+            \node (r2_right) at (10,-1) {$r_2$};
+            \node (r2_left) at (0,-2) {$r_2$};
+            \node (r3_right) at (10,-2) {$r_3$};
+            \node (r3_left) at (0,-3) {$r_3$};
+            \node (r4_right) at (10,-3) {$r_4$};
+            \node (rk-2_right) at (10,-5) {$r_{k-2}$};
+            \node (rk-1) at (0,-6) {$r_{k-1}$};
+            \node (rk) at (10,-6) {$r_k=0$};
+            \node (ggT) at (0,-8) {$\mathrm{ggT}(a,b)=r_{k-1}$};
+            \draw[->] (a.205) -- (r1.30);
+            \draw[->] (b) -- (a) node[fill=white,midway] {$b=aq_1+r_1$};
+            \draw[->] (r1) -- (r2_right) node[fill=white,midway] {$a=r_1q_2+r_2$};
+            \draw[->] (r2_right.205) -- (r2_left.30);
+            \draw[->] (r2_left) -- (r3_right) node[fill=white,midway] {$r_1=r_2q_3+r_3$};
+            \draw[->] (r3_right.205) -- (r3_left.30);
+            \draw[->] (r3_left) -- (r4_right) node[fill=white,midway] {$r_2=r_3q_4+r_4$};
+            \draw[->, dashed] (r4_right) -- (rk-2_right);
+            \draw[->] (rk-2_right) -- (rk-1.15);
+            \draw[->] (rk-1) -- (rk) node[fill=white,midway] {$r_{k-2}=r_{k-1}q_k+r_k$};
+            \draw[arrows = {-Kite}] (rk-1) -- (ggT);
+        \end{tikzpicture}
+        \caption{Euklidischer Algorithmus}
+    \end{figure}
+    Wobei hier nur der (nichttriviale) Fall $k\ge4$ dargestellt ist, also zum induktiven Schritt übergegangen wurde.
+
+    Das Diagramm ist von links nach rechts, oben nach unten zu verstehen, also in Richtung der Pfeile.
+\end{remark}
+
+\begin{remark}
     Eine Anwendung des euklidischen Algorithmus ist die Berechnung von Koeffizienten $x,y$ mit
     $ax+by=\mathrm{ggT}(a,b)$. Mit der Notation aus Satz \ref{theorem:euklidischer-algorithmus} folgt
     \begin{align*}
