@@ -72,7 +72,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{intcalc}
 
-\usetikzlibrary{shapes,arrows,chains}
+\usetikzlibrary{shapes,arrows,chains,arrows.meta}
 \usetikzlibrary[calc]
 
 \crefname{figure}{Abbildung}{Abbildungen}
