@@ -48,7 +48,8 @@
 
 \begin{remark}
     Es kann hilfreich sein, den euklidischen Algorithmus zu visualisieren. Dazu sei folgendes Diagramm gegeben:
-    \begin{center}
+    \begin{figure}[H]
+        \centering
         \begin{tikzpicture}
             \node (b) at (0,0) {$b$};
             \node (a) at (10,0) {$a$};
@@ -74,7 +75,8 @@
             \draw[->] (rk-1) -- (rk) node[fill=white,midway] {$r_{k-2}=r_{k-1}q_k+r_k$};
             \draw[arrows = {-Kite}] (rk-1) -- (ggT);
         \end{tikzpicture}
-    \end{center}
+        \caption{Euklidischer Algorithmus}
+    \end{figure}
     Wobei hier nur der (nichttriviale) Fall $k\ge4$ dargestellt ist, also zum induktiven Schritt übergegangen wurde.
 
     Das Diagramm ist von links nach rechts, oben nach unten zu verstehen, also in Richtung der Pfeile.
