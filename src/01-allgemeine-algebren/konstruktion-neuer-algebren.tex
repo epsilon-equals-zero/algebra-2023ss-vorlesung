@@ -30,7 +30,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proof}
 
 \begin{remark}
-    Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$.
+    Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum mit $\vert V\vert > 1$ über einem Körper $\mathfrak{K}$.
     Dann ist $x\approx 0$ ein Gesetz, welches in $(\{0\},+,0,-,(m_k)_{k\in\mathfrak{K}})$ erfüllt ist, jedoch nicht in $\mathfrak{V}$.
     Wir sehen also, dass die Umkehrung von Proposition \ref{prop:unteralgebra} nicht gilt.
 \end{remark}
@@ -166,7 +166,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Es gilt klarerweise $\langle S\rangle\supseteq \{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}$.
     Sei $a\in\langle S\rangle$ beliebig. Dann existiert ein Term $t$ und es existieren $a_1,\ldots,a_\ell\in S$,
     sodass $a=t^\mathfrak{A}(a_1,\ldots,a_\ell)$. Mit dem Term $\tilde{t}(x_1,\ldots,x_n):=t(y_1,\ldots,y_\ell)$, wobei $y_i:=x_j\leftrightarrow a_i=s_j$
-    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}.$
+    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}.$\footnote{Genau genommen ist die Konstruktion von $\tilde{t}$ nicht notwendig, da schon $t \in T(X)$ ist. Wenn man allerdings fordert, dass nur bei $\var(t)=\{x_1,\ldots,x_n\}$ auch $t(x_1,\ldots,x_n)$ geschrieben wird, dann wird der zusätzliche Schritt benötigt.}
 \end{proof}
 
 \begin{remark}

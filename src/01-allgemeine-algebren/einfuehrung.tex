@@ -4,7 +4,7 @@
 Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra definiert und es werden weiter einige spezielle Algebren vorgestellt.
 
 \begin{definition}\label{def:algebra}\label{def:allg_algebra}
-    Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über einer beliebigen Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
+    Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über einer beliebigen Indexmenge\footnote{Man beachte, dass an dieser Stelle auch $I = \emptyset$ erlaubt ist.} $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
     Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra}\index{Algebra!allgemeine} vom \emph{Typ}\index{Algebra!Typ} $\tau$ oder auch \emph{$\tau$-Algebra}. Die einzelnen Funktionen $f_i$ nennt man \emph{fundamentale Operationen}\index{fundamentale Operation} und haben \emph{Stelligkeit}\index{Stelligkeit} oder auch \emph{Arität}\index{Arität} $n_i$. Die Gesamtheit der Funktionssymbole $(f_i)_{i\in I}$ nennen wir \emph{Signatur}\index{Signatur} oder \emph{Sprache}\index{Sprache}.
 \end{definition}
 
@@ -92,7 +92,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \begin{definition} \label{def:ring}
     Eine Algebra $\mathfrak{A} = (A, +, 0, -, \cdot)$ vom Typ $\tau = (2,0,1,2)$ heißt \emph{Ring}\index{Ring}, wenn
     \begin{itemize}
-        \item $(A, +, -, 0)$ eine kommutative Gruppe,
+        \item $(A, +, 0, -)$ eine kommutative Gruppe,
         \item $(A, \cdot)$ eine Halbgruppe und
         \item $\cdot$ links- und rechtsdistributiv über $+$ ist.
     \end{itemize}
@@ -106,7 +106,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{samepage}
 \begin{definition}
-    Ist $\mathfrak{A} = (A,+,0,-,1,\cdot)$ ein kommutativer Ring mit 1, so heißt $\mathfrak{A}$ \emph{Körper}\index{Körper}, wenn
+    Ist $\mathfrak{A} = (A,+,0,-,\cdot,1)$ ein kommutativer Ring mit $1\neq 0$, so heißt $\mathfrak{A}$ \emph{Körper}\index{Körper}, wenn
     \begin{itemize}
         \item $\forall x \in A\backslash \{0\} \exists y \in A: x\cdot y = 1$
     \end{itemize}
@@ -196,7 +196,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{example}
 
 \begin{lemma}
-    Jeder Verband $\mathfrak{V} = (V, \wedge, \vee)$ mit endlicher Trägermenge $V = \{v_1, \ldots, v_n\}$ kann zu einem beschränkten Verband gemacht werden.
+    Jeder Verband $\mathfrak{V} = (V, \wedge, \vee)$ mit nichtleerer endlicher Trägermenge $V = \{v_1, \ldots, v_n\}$ kann zu einem beschränkten Verband gemacht werden.
 \end{lemma}
 \begin{proof}
     Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $j \in \{1, \ldots, n\}$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$

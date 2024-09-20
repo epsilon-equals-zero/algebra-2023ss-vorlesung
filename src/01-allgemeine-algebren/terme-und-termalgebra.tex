@@ -6,7 +6,7 @@
     Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variable}, $(f_i)_{i \in I}$ \emph{Sprache} oder \emph{Signatur}\footnote{Wegen \cref{definition:termalgebra} ist diese erneute Belegung der Begriffe \emph{Sprache} und \emph{Signatur} aus \cref{def:algebra} gerechtfertigt.} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
     Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \mid t \in T_k\}$ die \emph{Stufe von $t$}\index{Term!Stufe}. 
     
-    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_{n_i})$ ist $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$. Für einen Term $t$ werden wir auch $t(\var(t))$ beziehungsweise im Fall $\var(t)=\{x_1,\ldots,x_n\}$ auch $t(x_1,\ldots,x_n)$ schreiben.
+    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_{n_i})$ ist $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$. Für einen Term $t$ werden wir auch $t(\var(t))$ beziehungsweise im Fall $\var(t)\subseteq\{x_1,\ldots,x_n\}$ auch $t(x_1,\ldots,x_n)$ schreiben.
 \end{definition}
 
 \begin{example}
