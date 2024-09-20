@@ -3,8 +3,8 @@ Dieses Kapitel beschäftigt sich mit elementaren Aussagen zu Halbgruppen und Mon
 
 Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe1} hinweisen, die die im Folgenden verwendeten Begriffe \emph{Halbgruppe}, \emph{Monoid}, \emph{neutrales Element} und \emph{inverses Element} definieren.
 
-\begin{example}
-    Für eine beliebige Menge $M$ ist die Menge aller Funktionen von $M$ nach $M$ mit der Verkettung eine Halbgruppe $\mathfrak{H} = (M^M, \circ)$.
+\begin{example}\label{ex:selbstabbildungsmonoid}
+    Für eine beliebige Menge $M$ ist die Menge aller Funktionen von $M$ nach $M$ mit der Verkettung und $\id_M$ als neutrales Element ein Monoid $\mathfrak{M} = (M^M, \circ, \id_M)$.
 \end{example}
 
 \begin{definition}
@@ -17,7 +17,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe1} hinwei
 \end{definition}
 
 \begin{lemma}
-    Neutrale Elemente in Halbgruppen und inverse Elemente in Monoiden sind eindeutig.
+    Neutrale und inverse Elemente in Monoiden sind eindeutig.
 \end{lemma}
 
 \begin{proof}
@@ -55,7 +55,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe1} hinwei
     
     Betrachten wir allerdings das freie Monoid über $X^{(2)} = \{x_1, x_2\}$, so ist dieses nicht mehr kommutativ, also ``freier'' als das über $X^{(1)}$. 
 
-    Ist der Generator (die Variablenmenge) $X$ unendlich, so ist das erzeugte Monoid \emph{total frei}\index{Monoid!total frei} über $X$, das heißt es gelten genau die Gesetze, die in der Varietät gelten, wie man aus folgender Bemerkung erkennt.
+    Ist der Generator (die Variablenmenge) $X$ unendlich, so ist das erzeugte Monoid \emph{total frei}\index{Monoid!total frei} über $X$, das heißt es gelten genau die Gesetze, die in der Varietät gelten. Da die Aritäten stets endlich sind, kann jedes Gesetz über einer Sprache mit Hilfe einer beliebigen unendlichen Variablenmenge ausgedrückt werden. Daher folgt dies aus folgender Bemerkung.
 \end{remark}
 
 \begin{remark}
@@ -64,14 +64,14 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe1} hinwei
 \end{remark}
 
 \begin{theorem}[Darstellungssatz von Cayley für Monoide]\label{theorem:darstellungssatz-cayley-monoid}\index{Satz!von Cayley (Monoide)}
-    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$\footnote{Wie man leicht nachrechnet ist $(M^M,\circ,\mathrm{id}_M)$ für jede beliebige nicht leere Menge $M$ ein Monoid.}.
+    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$.
 \end{theorem}
 \begin{proof}
     Wähle für $a \in M$ die Funktion $f_a: M \to M, b \mapsto a \cdot b$ und sei $\varphi: M \to M^M, a \mapsto f_a$. Zeigen wir nun, dass $\varphi$ ein injektiver Homomorphismus von $\mathfrak{M}$ nach $(M^M, \circ, \id_M)$ ist. Seien $a_1, a_2 \in M$, so gilt $$\varphi(a_1 \cdot a_2) = f_{a_1 \cdot a_2} = (M \to M, b \mapsto a_1 \cdot a_2 \cdot b) = f_{a_1} \circ f_{a_2} = \varphi(a_1) \circ \varphi(a_2)$$
     und es ist $\varphi(e) = f_e = \id_M$. Damit ist $\varphi$ mit den Operationen verträglich, also ein Homomorphismus. Bleibt noch die Injektivität zu zeigen. Sei angenommen $\varphi(a_1) = \varphi(a_2)$, dann folgt daraus $a_1 = a_1 \cdot e = f_{a_1}(e) = f_{a_2}(e) = a_2 \cdot e = a_2$, womit $\varphi$ injektiv ist.
 \end{proof}
 
-Wichtig für \cref{theorem:fundamentalsatz-der-arithmetik} ist die Menge der Primzahlen, welche wir mit dem Symbol $\mathbb{P}$ bezeichnen.
+Wichtig für den folgenden Satz ist die Menge der Primzahlen $\mathbb{P}$.
 
 \begin{theorem}[Fundamentalsatz der Arithmetik]\label{theorem:fundamentalsatz-der-arithmetik}\index{Fundamentalsatz!der Arithmetik}
     Sei $\mathfrak{S} = (S, +^{\mathfrak{S}}, 0^{\mathfrak{S}}) \le \prod_{p \in \mathbb{P}} (\mathbb{N}, +, 0)$ definiert durch
@@ -110,9 +110,7 @@ Wichtig für \cref{theorem:fundamentalsatz-der-arithmetik} ist die Menge der Pri
 \end{proof}
 
 \begin{remark}
-    Betrachte nochmals den obigen Isomorphismus $\varphi$. Es ist $(\mathbb{N}, \leq)$ eine Totalordnung, also eine Halbordnung in der für alle $x,y$ entweder $x \leq y$ oder $y \leq x$ gilt.
-
-    Wir definieren nun eine Halbordnung auf $S$ durch
+    Wir definieren eine Halbordnung auf $S$ durch
     $$ f \leq g :\Leftrightarrow \forall p \in \mathbb{P}: f(p) \leq g(p). $$
     Mit 
     \begin{align*}
@@ -138,7 +136,7 @@ Wichtig für \cref{theorem:fundamentalsatz-der-arithmetik} ist die Menge der Pri
 \end{proof}
 
 \begin{definition}
-    Sei $H$ ein Monoid und $a \in H$. Gilt für alle $b, b' \in H$
+    Sei $\mathfrak{M} = (M,\cdot,e)$ ein Monoid und $a \in M$. Gilt für alle $b, b' \in M$
     \begin{itemize}
         \item $ a \cdot b = a \cdot b' \implies b = b', $ so heißt $a$ \emph{linkskürzbar}.\index{kürzbar!links-}
         \item $ b \cdot a = b' \cdot a \implies b = b', $ so heißt $a$ \emph{rechtskürzbar}.\index{kürzbar!rechts-}
@@ -147,55 +145,55 @@ Wichtig für \cref{theorem:fundamentalsatz-der-arithmetik} ist die Menge der Pri
 \end{definition}
 
 \begin{remark}
-    Es stellt sich die Frage ob es möglich ist ein Monoid $(H, \cdot, e)$ in eine Gruppe einzubetten. Wir beobachten, dass in einer Gruppe alle Elemente sowohl links-, als auch rechtskürzbar sind. Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{H} = (H, \cdot, e)$ in eine Gruppe ist also jedenfalls, dass für alle $a \in H$ $a$ sowohl links- als auch rechtskürzbar ist.
+    Es stellt sich die Frage ob es möglich ist ein Monoid $(M, \cdot, e)$ in eine Gruppe einzubetten. Wir beobachten, dass in einer Gruppe alle Elemente sowohl links-, als auch rechtskürzbar sind. Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{M} = (M, \cdot, e)$ in eine Gruppe ist also jedenfalls, dass alle $a \in M$ kürzbar sind. Das Monoid aller Selbstabbildungen einer Menge aus \cref{ex:selbstabbildungsmonoid} hat nichtkürzbare Elemente, ist also nicht in eine Gruppe einbettbar.
 
-    Hinreichend hingegen ist die obige Kürzbarkeit mit der zusätzlichen Forderung das $\mathfrak{H}$ kommutativ ist (siehe Satz \ref{theorem:monoid-gruppe-einbettung}). Es sei angemerkt, dass die Kommutativität im Allgemeinen nicht notwendig ist.
+    Hinreichend hingegen ist die obige Kürzbarkeit mit der zusätzlichen Forderung das $\mathfrak{M}$ kommutativ ist (siehe Satz \ref{theorem:monoid-gruppe-einbettung}).
 \end{remark}
 
 \begin{example} {\ }
     \begin{enumerate}
-        \item Betrachte $\Gl_2(\mathbb{R})$ und das (nicht kommutative) Untermonoid $\mathfrak{H} := \Gl_2(\mathbb{R}) \cap \mathbb{Z}^{2 \times 2}$.
+        \item Betrachte die Gruppe $(\Gl_2(\mathbb{R}), \cdot\footnote{Hier bezeichnet $\cdot$ die Matrixmultiplikation.}, I_2)$ und das (nicht kommutative) Untermonoid $\mathfrak{H} := (\Gl_2(\mathbb{R}) \cap \mathbb{Z}^{2 \times 2}, \cdot, I_2)$.
         \item Betrachten wir die freie Gruppe über $\{x,y\}$, so erhalten wir mit der Menge aller Wörter von der Form $x^{n_1} y^{m_1} \cdot ... \cdot x^{n_l} y^{m_l}$ ($n_i, m_i \geq 0$)
         ein nicht kommutatives Untermonoid. Das Beispiel zeigt, ebenfalls, dass Kommutativität nicht notwendig ist.
     \end{enumerate}
 \end{example}
 
 \begin{theorem}\label{theorem:monoid-gruppe-einbettung}
-    Sei $\mathfrak{H} = (H, \cdot, e)$ ein kommutatives Monoid und jedes $a \in H$ kürzbar\footnote{Aufgrund der Kommutativität reicht es sogar lediglich Links- oder Rechtskürzbarkeit zu fordern.}. Dann gilt
+    Sei $\mathfrak{M} = (M, \cdot, e)$ ein kommutatives Monoid und jedes $a \in M$ kürzbar\footnote{Aufgrund der Kommutativität reicht es sogar lediglich Links- oder Rechtskürzbarkeit zu fordern.}. Dann gilt
     \begin{enumerate}
-        \item $\sim\; \subseteq (H^2)^2$ mit
+        \item $\sim\; \subseteq (M^2)^2$ mit
         $$ (a,b) \sim (c,d) :\Leftrightarrow a \cdot d = b \cdot c $$
-        ist eine Kongruenzrelation auf $\mathfrak{H}^2$.
-        \item $\mathfrak{H}^2 /_\sim$ ist eine Gruppe.
+        ist eine Kongruenzrelation auf $\mathfrak{M}^2$.
+        \item $\mathfrak{M}^2 /_\sim$ ist eine Gruppe.
         \item Die Abbildung
-        $$ \varphi :\; \mathfrak{H} \to \mathfrak{H}^2 /_\sim, \;a \mapsto [(a,e)]_\sim $$
+        $$ \varphi :\; \mathfrak{M} \to \mathfrak{M}^2 /_\sim, \;a \mapsto [(a,e)]_\sim $$
         ist eine \emph{Einbettung}\index{Einbettung}, also ein injektiver Homomorphismus.
-        \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle injektiven Homomorphismen $\psi : \mathfrak{H} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{H}^2 /_\sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
+        \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle injektiven Homomorphismen $\psi : \mathfrak{M} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{M}^2 /_\sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
     \end{enumerate}
 
     \begin{figure}[H]
         \centering
         \begin{tikzpicture}
             \node[shape=ellipse,draw,minimum width=30,minimum height=30] at (0, 0) {};
-            \node at (0, 0) {$\mathfrak{H}$};
+            \node at (0, 0) {$\mathfrak{M}$};
 
             \node[shape=ellipse,draw,minimum width=70,minimum height=70] at (3, 0) {};
             \node[shape=ellipse,draw,dashed,minimum width=30,minimum height=30] at (3, 0) {};
-            \node at (3, 0) {$\mathfrak{H}$};
-            \node at (4.6, 1) {$\mathfrak{H}^2 /_\sim$};
+            \node at (3, 0) {$\mathfrak{M}$};
+            \node at (4.6, 1) {$\mathfrak{M}^2 /_\sim$};
 
             \node[shape=ellipse,draw,dashed,minimum width=30,minimum height=30] at (0.5, -2.6) {};
             \node[shape=ellipse,draw,minimum width=70,minimum height=60] at (0.5, -2.8) {};
             \node[shape=ellipse,draw,minimum width=120,minimum height=100] at (0, -3) {};
-            \node at (0.5, -2.6) {$\mathfrak{H}$};
-            \node at (0.5, -4.2) {$\mathfrak{H}^2 /_\sim$};
+            \node at (0.5, -2.6) {$\mathfrak{M}$};
+            \node at (0.5, -4.2) {$\mathfrak{M}^2 /_\sim$};
             \node at (-2.1, -2) {$\mathfrak{G}$};
 
             \draw [->] (0.4,0) to [bend left=15] node [midway,above] {$\varphi$} (2,0);
             \draw [->] (0,-0.4) to [bend right=15] node [midway,left] {$\psi$} (-0.3,-2.6);
             \draw [->] (3,-1) to [bend left=15] node [midway,right] {$\overline{\psi}$} (1.4,-2.8);
         \end{tikzpicture}
-        \caption{Visualisierung der Einbettung von $\mathfrak{H}$ in die Gruppen $\mathfrak{G}, \mathfrak{H}^2 /_\sim$}
+        \caption{Visualisierung der Einbettung von $\mathfrak{M}$ in die Gruppen $\mathfrak{G}, \mathfrak{M}^2 /_\sim$}
     \end{figure}
 \end{theorem}
 
@@ -212,28 +210,30 @@ Wichtig für \cref{theorem:fundamentalsatz-der-arithmetik} ist die Menge der Pri
         \end{enumerate}
         Seien $(a_1, b_1) \sim (c_1, d_1), (a_2, b_2) \sim (c_2, d_2)$, also $a_1 d_1 = c_1 b_1$ und $a_2 d_2 = c_2 b_2$ und damit $a_1 a_2 d_1 d_2 = c_1 c_2 b_1 b_2$, also $(a_1 a_2, b_1 b_2) \sim (c_1 c_2, d_1 d_2)$, womit $\sim$ auch eine Kongruenzrelation ist.
 
-        \item Wir bemerken, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, also ist $[(e,e)]_\sim = \{ (a, a) \mid a \in H \}$ unser neutrales Element in $\mathfrak{H}^2 /_\sim$.
+        \item Hier liefert \cref{theorem:birkhoff} (Birkhoff), dass $\mathfrak{M}^2 /_\sim$ ein Monoid mit neutralem Element $[(e,e)]_\sim$ ist. Wir bemerken, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, also ist $[(e,e)]_\sim = \{ (a, a) \mid a \in M \}$ unser neutrales Element in $\mathfrak{M}^2 /_\sim$.
         
         Wegen
         $$ [(a,b)]_\sim \cdot [(b,a)]_\sim = [(ab, ab)]_\sim = [(e,e)]_\sim $$
-        ist $[(b,a)]_\sim$ invers zu $[(a,b)]_\sim$, womit $\mathfrak{H}^2 /_\sim$ eine Gruppe ist.
+        ist $[(b,a)]_\sim$ invers zu $[(a,b)]_\sim$, womit $\mathfrak{M}^2 /_\sim$ mit obiger Inversenbildung eine Gruppe ist.
 
         \item Es gilt
-        $$ \varphi(e) = [(e,e)]_\sim \quad \textrm{neutral in } \mathfrak{H}^2 /_\sim, $$
-        sowie für $a, b \in H$
+        $$ \varphi(e) = [(e,e)]_\sim \quad \textrm{neutral in } \mathfrak{M}^2 /_\sim, $$
+        sowie für $a, b \in M$
         $$ \varphi(ab) = [(ab, e)]_\sim = [(a,e)]_\sim \cdot [(b,e)]_\sim = \varphi(a) \cdot \varphi(b), $$
         womit $\varphi$ ein Homomorphismus ist.
 
-        Seien nun $a,b \in H$ mit $\varphi(a) = \varphi(b)$, also $[(a,e)]_\sim = [(b,e)]_\sim$, so folgt $a = ae = eb = b$, womit $\varphi$ injektiv ist.
+        Seien nun $a,b \in M$ mit $\varphi(a) = \varphi(b)$, also $[(a,e)]_\sim = [(b,e)]_\sim$, so folgt $a = ae = eb = b$, womit $\varphi$ injektiv ist.
 
-        \item Sei \obda $\psi = \id_H$\footnote{Diese Einschränkung ist möglich, da $\psi$ ein injektiver Homomorphismus ist.} und definiere $ \overline{\psi} :\; \mathfrak{H}^2 /_\sim \to \mathfrak{G}, \;[(a,b)]_\sim \mapsto a \cdot b^{-1} $.
+        \item Sei \obda $\psi = \id_M$\footnote{Diese Einschränkung ist möglich, da $\psi$ ein injektiver Homomorphismus ist.} und definiere $ \overline{\psi} :\; \mathfrak{M}^2 /_\sim \to \mathfrak{G}, \;[(a,b)]_\sim \mapsto a \cdot b^{-1} $.
         
-        Seien $a,b,c,d \in H$ beliebig mit $a b^{-1} = c d^{-1}$, so folgt $ad = bc$, also $[(a,b)]_\sim = [(c,d)]_\sim$, womit $\overline{\psi}$ injektiv ist.
+        Seien $a,b,c,d \in M$ beliebig mit $a b^{-1} = c d^{-1}$, so folgt $ad = bc$, also $[(a,b)]_\sim = [(c,d)]_\sim$, womit $\overline{\psi}$ injektiv ist.
 
         Weiters ist
         \begin{align*}
             \overline{\psi}([(a,b)]_\sim \cdot [(c,d)]_\sim) &= \overline{\psi}([(ac,bd)]_\sim) = ac (bd)^{-1} = ab^{-1} \cdot cd^{-1} \\ &= \overline{\psi}([(a,b)]_\sim) \cdot \overline{\psi}([(c,d)]_\sim), 
         \end{align*}
         womit $\overline{\psi}$ ein Homomorphismus ist.
+
+        Zuletzt betrachten wir $$ (\overline{\psi} \circ \varphi)(a) = \overline{\psi}(\varphi(a)) = \overline{\psi}([(a,e)]_\sim) = a \cdot e^{-1} = a.$$ Daher ist $\overline{\psi} \circ \varphi = \psi$.
     \end{enumerate}
 \end{proof}
