@@ -11,7 +11,7 @@
     \begin{enumerate}
         \item Sei nach \cref{theorem:primkoerper} $K \geq \mathbb{Z}_p$ und wähle $n := [K : \mathbb{Z}_p]$. Es gilt klarerweise $\vert K \vert = p^n$.
         \item Betrachte
-        $$ f(x) = x(x^{p^n - 1} - 1), $$
+        $$ f(x) = x(x^{p^n - 1} - 1)\in K[x], $$
         so ist
         $$ f'(x) = p^n x^{p^n - 1} - 1 = -1, $$
         also folgt $\ggT(f, f') = 1$, womit die Nullstellen von $f$ nach \cref*{lemma:mehrfache_nullstellen} paarweise verschieden sind. Wähle
@@ -19,12 +19,22 @@
         so gilt gerade $\vert N \vert = p^n = \deg f$. Wir behaupten, dass $N$ ein Körper ist. Klarerweise sind $0, 1 \in N$. Sind $\alpha, \beta \in N$, so ist $\alpha^{p^n} = \alpha, \beta^{p^n} = \beta$, also ist $(\alpha + \beta)^{p^n} = \alpha^{p^n} + \beta^{p^n} = \alpha + \beta$. Damit ist $\alpha + \beta \in N$. 
         Ist $\alpha\in N$, so gilt $(-\alpha)^{p^n}=(-1)^{p^n}(\alpha)^{p^n}=(-1)^{p^n}\alpha$. Falls $p=2$ ist, so gilt $-1=1$ und daher folgt $-\alpha\in N$. Andernfalls ist $p^n$ ungerade und daher folgt ebenfalls $-\alpha\in N$.
         Entsprechend verifiziert man $\cdot$ und ${}^{-1}$.
+
+        Für die Eindeutigkeit sei $L$ ein Körper mit $|L|=p^n$. Die multiplikative Gruppe $L^\times$ hat $p^n-1$ Elemente, daher gilt nach dem Satz von Lagrange $\alpha^{p^n-1}=1$ für $\alpha\in L^\times$. Daraus folgt, dass jedes Element aus $L$ Nullstelle von $f(x):=x(x^{p^n-1}-1)=x^{p^n}-x$ ist. Wegen $\deg(f)=|L|$ folgt, dass $L$ genau die Nullstellenmenge von $f$ ist. Aus der Eindeutigkeitsaussage über Zerfällungskörper folgt die gewünschte Eindeutigkeitsaussage des Satzes.
     \end{enumerate}
 \end{proof}
 
 \begin{remark}
     Für diesen bis auf Isomorphie eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{N}$. Wir werden diesen Satz hier nicht beweisen. 
 \end{remark}
+
+\begin{lemma}
+    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert<\infty$. Dann gilt $K_1 = K_2$.
+\end{lemma}
+
+\begin{proof}
+    Wähle $p^n := \vert K_1 \vert = \vert K_2 \vert$ mit $p \in \mathbb{P}, n \geq 1$, so ist eine isomorphe Kopie von $\mathbb{Z}_p \leq K_1, K_2$. Nun ist $K_1$ der Zerfällungskörper von $x^{p^n} - x$ über $\mathbb{Z}_p$, ebenso $K_2$. Nun gilt nach dem Beweis von \cref{theorem:endliche_koerper_eindeutigkeit}, dass $K_1$ und $K_2$ genau die Nullstellenmenge von $x^{p^n}-x$ sind, also folgt $K_1 = K_2$.
+\end{proof}
 
 \begin{lemma}
     Seien $k, n \geq 1, k \mid n$ und $p \in \mathbb{P}$. Dann gilt:
@@ -43,15 +53,8 @@
     \end{enumerate}
 \end{proof}
 
-\begin{lemma}
-    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert<\infty$. Dann gilt $K_1 = K_2$.
-\end{lemma}
 
-\begin{proof}
-    Wähle $p^n := \vert K_1 \vert = \vert K_2 \vert$ mit $p \in \mathbb{P}, n \geq 1$, so ist eine isomorphe Kopie von $\mathbb{Z}_p \leq K_1, K_2$. Nun ist $K_1$ der Zerfällungskörper von $x^{p^n} - x$ über $\mathbb{Z}_p$, ebenso $K_2$. Nun gilt nach dem Beweis von \cref{theorem:endliche_koerper_eindeutigkeit}, dass $K_1$ und $K_2$ genau die Nullstellenmenge von $x^{p^n}-x$ sind, also folgt $K_1 = K_2$.
-\end{proof}
-
-\begin{proposition}
+\begin{proposition}\label{proposition:inklusion-von-gf}
     Seien $k, n \geq 1$ und $p \in \mathbb{P}$. Dann existiert ein $K \leq \mathrm{GF}(p^n)$ mit $\vert K \vert = p^k$ genau dann wenn $k \mid n$.
 \end{proposition}
 
@@ -63,7 +66,7 @@
     $$ \mathbb{Z}_p \leq \mathrm{GF}(p^k) = Z_{\{g\}}(\mathbb{Z}_p) \leq Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n). $$
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:irreduzible-polynome-ueber-Z_p}
     Sei $n \geq 1, p \in \mathbb{P}$. Dann gilt:
     \begin{enumerate}
         \item Für alle $f \in \mathbb{Z}_p[x]$ irreduzibel, $\deg f = n$, gilt:
@@ -117,10 +120,10 @@
 \end{proof}
 
 \begin{lemma}
-    Sei $f \in \mathbb{Z}_p[x]$ irreduzibel, $n := \deg f$, $\alpha_1, \ldots, \alpha_n \in \mathrm{GF}(p^n)$ Nullstellen von $f$. Dann gilt
+    Sei $f \in \mathbb{Z}_p[x]$ irreduzibel, $n := \deg f$, $\alpha_1, \ldots, \alpha_n \in \mathrm{GF}(p^n)$ die paarweise verschiedenen Nullstellen von $f$. Dann gilt
     \begin{enumerate}
         \item $\forall\varphi\in\Aut(\mathrm{GF}(p^n)): \varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ ist eine Permutation von $\{\alpha_1, \ldots, \alpha_n\}$.
-        \item Für alle $i \in \{1, \ldots, n\}$ existiert ein eindeutiger Automorphismus $\varphi_i$ mit $\varphi_i(\alpha_1) = \alpha_i$.
+        \item Für alle $i \in \{1, \ldots, n\}$ existiert genau ein $\varphi\in\Aut(\mathrm{GF}(p^n))$ mit $\varphi(\alpha_1) = \alpha_i$.
     \end{enumerate}
 \end{lemma}
 \begin{proof}{\ }
@@ -128,7 +131,7 @@
         \item Mit $\varphi(f)$ bezeichnen wir jenes Polynom, welches man erhält, wenn man $\varphi$ auf die Koeffizienten von $f$ anwendet. Da sich jedes Element von $\mathbb{Z}_p$ als Summe der $1$ darstellen lässt, gilt $\varphi\vert_{\mathbb{Z}_p}=\id_{\mathbb{Z}_p}$. Da $f$ ein Polynom mit Koeffizienten in $\mathbb{Z}_p$ ist, folgt $\varphi(f)=f$. Es ist $\varphi \in \Aut(\mathrm{GF}(p^n))$, also gilt $\forall\alpha\in \mathrm{GF}(p^n): f(\alpha) = 0 \Rightarrow f(\varphi(\alpha)) = \varphi(f)(\varphi(\alpha)) = 0$. Daher werden Nullstellen von $f$ durch $\varphi$ auf Nullstellen von $f$ abgebildet. 
         Da $\varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ injektiv ist und $\{\alpha_1, \ldots, \alpha_n\}$ endlich ist, ist $\varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ surjektiv und damit eine Permutation.
 
-        \item Es ist $f = \mu_{\alpha_1} = \mu_{\alpha_i}$, also gibt es nach \cref{prop:minimalpolynom_erweiterung} einen eindeutigen Isomorphismus $\varphi_i: \mathbb{Z}_p(\alpha_1) \to \mathbb{Z}_p(\alpha_i)$ mit $\varphi_i\vert_{\mathbb{Z}_p} = \id_{\mathbb{Z}_p}$ und $\varphi_i(\alpha_1) = \alpha_i$. Da $\mathrm{GF}(p^n) = \mathbb{Z}_p(\alpha_1) = \mathbb{Z}_p(\alpha_i)$ folgt die Aussage.
+        \item Es ist $f = \mu_{\alpha_1} = \mu_{\alpha_i}$, also gibt es nach \cref{prop:minimalpolynom_erweiterung} einen eindeutigen Isomorphismus $\varphi: \mathbb{Z}_p(\alpha_1) \to \mathbb{Z}_p(\alpha_i)$ mit $\varphi\vert_{\mathbb{Z}_p} = \id_{\mathbb{Z}_p}$ und $\varphi(\alpha_1) = \alpha_i$. Da $\mathrm{GF}(p^n) = \mathbb{Z}_p(\alpha_1) = \mathbb{Z}_p(\alpha_i)$ folgt die Aussage.
      \end{enumerate}
 \end{proof}
 
@@ -151,7 +154,7 @@
         $$ \mathrm{GF}\left(p^\infty\right) := \bigcup_{k \ge 1} \mathrm{GF}\left(p^{k!}\right). $$
 \end{definition}
 \begin{remark}
-    $\mathrm{GF}(p^\infty)$ ist ein Körper, algebraisch über $\mathbb{Z}_p$. Der Beweis davon verläuft analog wie im Beweis der Existenz des algebraischen Abschlusses. Weiter ist $\mathrm{GF}(p^\infty)$ algebraisch abgeschlossen, denn sei $f \in \mathrm{GF}(p^\infty)[x]$ nicht konstant, dann gibt es ein $k$, sodass $f \in \mathrm{GF}(p^{k!})[x]$ und ein $\mathbb{\ell}$, sodass $Z_{\{f\}}(\mathbb{Z}_p) \le \mathrm{GF}(p^{l!})$. Daher hat $f$ eine Nullstelle in $\mathrm{GF}(p^\infty)$.
+    Die obige Definition lässt sich wie folgt rechtfertigen: Wegen $k!\mid (k+1)!$ und \cref{proposition:inklusion-von-gf} gilt $\mathrm{GF}(p^{k!})\le \mathrm{GF}(p^{(k+1)!})$ und damit bildet die Menge $\{\mathrm{GF}(p^{k!})\mid k\geq 1\}$ eine Kette von Körpern. Damit ist $\mathrm{GF}(p^\infty)$ ein Körper und auch algebraisch über $\mathbb{Z}_p$. Der Beweis davon verläuft analog wie im Beweis der Existenz des algebraischen Abschlusses. Weiters ist $\mathrm{GF}(p^\infty)$ algebraisch abgeschlossen, denn sei $f \in \mathrm{GF}(p^\infty)[x]$ irreduzibel. Da $f$ nur endlich viele Koeffizienten hat, gibt es $k\in\mathbb{N}$, sodass $f \in \mathrm{GF}(p^{k!})[x]$ gilt. Da $f$ auch über $\mathrm{GF}(p^{k!})$ irreduzibel ist, hat $f$ nach \cref{lemma:irreduzible-polynome-ueber-Z_p} eine Nullstelle in $\mathrm{GF}(p^{k!})[x]/(f)$. Wegen der Isomorphie $\mathrm{GF}(p^{k!})[x]/(f)\cong \mathrm{GF}(p^{k!\deg f})$ hat $f$ in $\mathrm{GF}(p^{\ell !})$ für $\ell\geq k!\deg f$ eine Nullstelle in $\mathrm{GF}(p^{\ell !})$ und damit auch in $\mathrm{GF}(p^\infty)$.
 
-    Bezeichnet $(\{GF(p^{n})\mid n\in\mathbb{N}\},\iota)$ die Halbordnung aller $GF(p^n)$ mit der Einbettungsabbildung $\iota$, so kann diese Konstruktion auch mit einer beliebigen anderen cofinalen Kette durchgeführt werden. Cofinal bedeutet, dass für jedes $GF(p^n)$ ein Element in der Kette vorkommen muss, welches in der Halbordnung nach $GF(p^n)$ liegt. Offensichtlich erfüllt die von uns gewählte Folge diese Voraussetzungen.
+    Bezeichnet $(\{GF(p^{n})\mid n\in\mathbb{N}\},\iota)$ die Halbordnung aller $GF(p^n)$ mit der Einbettungsabbildung $\iota$, so kann diese Konstruktion auch mit einer beliebigen anderen kofinalen Kette durchgeführt werden. Kofinal bedeutet, dass für jedes $GF(p^n)$ ein Element in der Kette vorkommen muss, welches in der Halbordnung nach $GF(p^n)$ liegt. Offensichtlich erfüllt die von uns gewählte Folge diese Voraussetzungen.
 \end{remark}

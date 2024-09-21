@@ -1,11 +1,11 @@
 \section{Einführung}
 
 \begin{definition}\label{def:unterkoerper}
-    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen \emph{Unterköper}\index{Unterkörper}, wenn $1 \in K$ und $K$ mit den von $L$ auf $K$ eingeschränkten Operationen ein Körper ist. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch \emph{Oberkörper}\index{Oberkörper} von $K$.
+    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen \emph{Unterköper}\index{Unterkörper}, wenn $K$ mit den von $L$ auf $K$ eingeschränkten Operationen ein Körper ist\footnote{Da die Inversenbildung keine der Operationen des Körpers ist, ist es nicht ausreichend, wenn man für $K$ nur die Abgeschlossenheit unter allen Körperoperationen fordert. Diese Tatsache wird durch das Beispiel $\mathbb{Z}\subseteq \mathbb{Q}$ illustriert.}. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch \emph{Oberkörper}\index{Oberkörper} von $K$.
 
-    Durch
-    $$ \bigcap \{ U \leq L \mid U \text{ Unterkörper von } L \} $$
-    ist ein Unterkörper von $L$ gegeben, welchen wir den \emph{Primkörper}\index{Primkörper} von L nennen.
+    Da für jedes $x\in L^\times$ das multiplikative Inverse $x^{-1}$ eindeutig ist, ist der Schnitt von Unterkörpern wieder ein Unterkörper. Damit ist durch
+    $$ \bigcap \{ U \mid U\le L \} $$
+    ein Unterkörper von $L$ gegeben, welchen wir den \emph{Primkörper}\index{Primkörper} von $L$ nennen.
 
     Sei $K \leq L, S \subseteq L$ so definieren wir die \emph{Körpererweiterung von $K$ um $S$}\index{Körpererweiterung} durch
     $$ K(S) := \bigcap \{ U \mid K \leq U \leq L, U \supseteq S \}. $$
@@ -17,11 +17,11 @@
 \end{definition}
 
 \begin{remark}
-    Beispielsweise gilt $\mathbb{R}(i) = \mathbb{C}$, wie wir später noch sehen werden.
+    Man sieht sofort, dass beispielsweise $\mathbb{R}(i) = \mathbb{C}$ gilt.
 \end{remark}
 
 \begin{remark}
-    Sei $K$ ein Körper, dann ist $K$ ein Unterkörper des Quotientenkörpers $Q$ von $K[x]$. Also ist $K \leq Q$ eine Körpererweiterung.
+    Für einen Körper $K$ ist $K$ ein Unterkörper von $K(x)$.
 \end{remark}
 
 \begin{definition}
@@ -41,7 +41,7 @@
 \end{theorem}
 
 \begin{proof}
-    Wir weisen zunächst die erste Behauptung nach. Sei $K$ ein Körper mit Charakteristik $0$.
+    Wir beweisen zunächst die erste Behauptung. Sei $K$ ein Körper mit Charakteristik $0$.
     Dann definieren wir eine Abbildung $\varphi:\mathbb{Q}\to K$ durch $\varphi(\pm\frac{a}{b})=\pm\frac{\overbrace{1+\ldots+1}^{a}}{\underbrace{1+\ldots+1}_{b}}$,
     mit $a\in \mathbb{N}$, $b\in\mathbb{N}\setminus\{0\}$. Diese Abbildung ist wohldefiniert,
     da der Nenner laut Voraussetzung niemals $0$ wird und sie unabhängig von der Wahl der Repräsentanten ist
@@ -51,17 +51,5 @@
     Da $\varphi(\mathbb{Q})$ einen Unterkörper von $K$ darstellt und $K$ aber ein Primkörper ist, folgt die Surjektivität von $\varphi$,
     also $K\cong \mathbb{Q}$.
 
-    Der Beweis, dass $K\cong\mathbb{Z}_p$ für $\mathrm{char}(K)=p$ gilt, verläuft ähnlich.
-    Dieses Mal definieren wir $\varphi:\mathbb{Z}_p\to K$ durch $\varphi(i):=\overbrace{1+\ldots+1}^{i}$.
-    Zunächst zeigen wir dieses Mal, dass $\varphi$ ein Homomorphismus ist:
-    Für die Addition müssen zwei Fälle unterschieden werden: Falls $i+j<p$ gilt, so folgt klarerweise die
-    Verträglichkeit. Ansonsten gilt $i+j=k+p$ mit $0\le k< p$ und wir folgern 
-    $\varphi(i+j)=\varphi(k)=\overbrace{1+\ldots+1}^{k}=\overbrace{1+\ldots+1}^{k+p}=\overbrace{1+\ldots+1}^{i}+\overbrace{1+\ldots+1}^{j}=\varphi(i)+\varphi(j)$,
-    wobei wir verwendet haben, dass $K$ Charakteristik $p$ hat. Die Verträglichkeit mit der Multiplikation zeigt man ähnlich
-    und die Homomorphiebedingung für die neutralen Elemente gilt definitionsgemäß. Die Abbildung
-    $\varphi$ ist außerdem injektiv, denn aus $\varphi(i)=0$ folgt klarerweise $i=0$. Damit ist
-    $\varphi(\mathbb{Z}_p)$ ein Unterkörper von $K$ und da $K$ ein Primkörper ist, folgt wieder die Surjektivität,
-    also $K\cong \mathbb{Z}_p$.
-
-
+    Für die zweite Behauptung definieren wir zunächst $\varphi:\mathbb{Z}\to K$ durch $\varphi(\pm k)=\pm(\overbrace{1+\ldots+1}^{k})$ für $k\in \mathbb{N}$. Klarerweise ist $\ker\varphi=p\mathbb{Z}$ und nach dem Homomorphiesatz gilt $\mathbb{Z}_p=\mathbb{Z}/\ker\varphi\cong \phi(\mathbb{Z})$. Daher ist $\varphi(\mathbb{Z})$ ein Körper und es folgt $K=\varphi(\mathbb{Z})$.
 \end{proof}

@@ -47,7 +47,15 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     Sei $K\le L$ und $\alpha\in L$ algebraisch$/_K$. Dann heißt das eindeutig bestimmte Polynom $\mu_\alpha$ aus \cref{remark:existenz-minimalpolynom} das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}.
 \end{definition}
 
-Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
+\begin{lemma}
+    Sei $K\le L$ und $\alpha\in L$ algebraisch über $K$. Dann ist $\mu_\alpha$ irreduzibel.
+\end{lemma}
+
+\begin{proof}
+    Angenommen es gäbe $f,g\in K[x]$ mit $\mu_\alpha=fg$ und $\deg f,\deg g\ge 1$. Dann gilt $0=\mu_\alpha(\alpha)=f(\alpha)g(\alpha)$, womit wir \obda verlangen können, dass $f(\alpha)=0$ gilt und $f$ normiert ist. Damit stellt $\deg(f)=\deg(\mu_\alpha)-\deg(g)<\deg(\mu_\alpha)$ einen Widerspruch zur der Definition des Minimalpolynoms dar.
+\end{proof}
+
+Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall sind die jeweiligen Körpererweiterungen isomorph, wie wir in folgender Proposition sehen werden.
 
 \begin{proposition} \label{prop:minimalpolynom_erweiterung}
     Sei $K \leq L, \alpha \in L$ algebraisch über $K$ und $\deg \mu_\alpha = k$. Dann gilt:
@@ -65,7 +73,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
     \begin{enumerate}
         \item Folgt sofort aus dem Homomorphiesatz, angewandt auf den Einsetzungshomomorphismus.
         
-        \item Es ist $K[\alpha]$ ein Unterring von $L$ und damit ein Integritätsbereich. Nach (1) ist also auch $K[x]/_{(\mu_\alpha)}$ ein Integritätsbereich, womit $(\mu_\alpha)$ prim ist. Damit ist $\mu_\alpha$ prim, insbesondere irreduzibel. Wir behaupten nun, dass $(\mu_\alpha)$ ein maximales Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ nach \cref{prop:ringideale} ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
+        \item Wir behaupten, dass $(\mu_\alpha)$ ein maximales Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ nach \cref{prop:ringideale} ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
         
         \item Existenz: Nach (1) und (2) gibt es ein $f \in K[x]$ mit $\varphi(f + (\mu_\alpha)) = f(\alpha) = \beta$. Nun ist $f = g \cdot \mu_\alpha + f'$ mit einem Polynom $f'$ mit Grad kleiner $k$. Damit ist $f'(\alpha) = f(\alpha) = \beta$.
         
@@ -75,9 +83,9 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
         
         \item Folgt sofort aus (4).
         
-        \item {Existenz:} Nach (1) gibt und (2) gibt es Isomorphismen
+        \item {Existenz:} Nach (1) und (2) gibt es Isomorphismen
         $\varphi:K[x]/_{(\mu_\alpha)}\to K(\alpha)$ und $\varphi':K[x]/_{(\mu_\alpha)}\to K(\beta)$
-        welche $\varphi\vert_K=\id_K$ und $\varphi'\vert_K=\id_K$ erfüllen. Wegen $\varphi(x+(\mu_\alpha))=\alpha$
+        welche $\varphi\vert_{K/(\mu_\alpha)}=\id_{K/(\mu_\alpha)}$ und $\varphi'\vert_{K/(\mu_\alpha)}=\id_{K/(\mu_\alpha)}$ erfüllen. Wegen $\varphi(x+(\mu_\alpha))=\alpha$
         und $\varphi'(x+(\mu_\alpha))=\beta$ liefert $\varphi'\circ\varphi^{-1}:K(\alpha)\to K(\beta)$
         einen gewünschten Isomorphismus.
 
@@ -98,25 +106,25 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \begin{proposition}{\ }
     \begin{enumerate}
         \item Sei $K \leq L$. Gilt $[L:K] < \infty$, so ist $K \leq L$ algebraisch.
-        \item Sei $K \leq K(\alpha)$ algebraisch, so ist $[K(\alpha) : K] < \infty$.
-        \item Sei $K \leq L$ algebraisch und $L \leq M$ algebraisch, so ist $K \leq M$ algebraisch.
-        \item Sei $K \leq L$ und $S := \{ \alpha \in L \mid \alpha \text{ ist algebraisch über } K \}$, so ist $K \leq S \leq L$.
+        \item Ist $K \leq K(\alpha)$ algebraisch, so ist $[K(\alpha) : K] < \infty$.
+        \item Ist $K \leq L$ algebraisch und $L \leq M$ algebraisch, so ist $K \leq M$ algebraisch.
+        \item Ist $K \leq L$ und $S := \{ \alpha \in L \mid \alpha \text{ ist algebraisch über } K \}$, so ist $K \leq S \leq L$.
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Sei $\alpha \in L \setminus \{0\}$. Da die Dimension der Erweiterung endlich ist, ist die Folge der Potenzen $\alpha^0, \alpha^1, \hdots$ linear abhängig über K. Es gibt also $a_0, \hdots, a_n \in K$ mit $\sum_{i=0}^n a_i \alpha^i = 0$, womit wir $f(x) = \sum_{i=0}^n a_i x^i$ wählen können. Es ist $f(\alpha) = 0$ und $f\neq 0$, womit $\alpha$ algebraisch ist.
+        \item Sei $\alpha \in L \setminus \{0\}$. Da die Dimension der Erweiterung endlich ist, ist die Folge der Potenzen $\alpha^0, \alpha^1, \hdots$ linear abhängig über K. Es gibt also eine nicht triviale Linearkombination $\sum_{i=0}^n a_i \alpha^i = 0$ mit $a_0, \hdots, a_n \in K$. Daher können wir $f(x) = \sum_{i=0}^n a_i x^i$ wählen. Es ist $f(\alpha) = 0$ und $f\neq 0$, womit $\alpha$ algebraisch ist.
         
         \item Es gilt $[K(\alpha) : K] = \deg \mu_\alpha < \infty$.
         
-        \item Sei $\alpha \in M$ beliebig, so gibt es ein $f(x) = \sum_{i=0}^n a_i x^i \in L[x], f(\alpha) = 0$, wobei $a_i \in L$, also algebraisch über $K$ sind. Es ist dann auch $\alpha$ algebraisch über $K(a_0, \hdots, a_n)$. Nun gilt
+        \item Sei $\alpha \in M$ beliebig, so gibt es ein $f(x) = \sum_{i=0}^n a_i x^i \in L[x]\setminus\{0\}, f(\alpha) = 0$. Wegen $a_i \in L$ ist $a_i$ algebraisch über $K$. Es ist dann auch $\alpha$ algebraisch über $K(a_0, \hdots, a_n)$. Wendet man den Gradsatz $(n+1)$-mal an, so erhält man
         \begin{align*}
             [K(\alpha) : K] &\leq [K(\alpha, a_0, \hdots, a_n) : K] = \\
             &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot [K(a_0, \hdots, a_n) : K] = \\
             &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot [K(a_0,\hdots ,a_n):K(a_1,\hdots,a_n)] \cdot \hdots \\ &\;\;\cdot [K(a_{n-1},a_n):K(a_n)]\cdot  [K(a_n) : K] < \infty
         \end{align*}
-        und nach (1) ist $K(\alpha)$ algebraisch über $K$, also insbesondere $\alpha$ über $K$.
+        und nach (1) ist $K(\alpha)$ algebraisch über $K$,x insbesondere ist $\alpha$ algebraisch über $K$.
 
         \item Seien $\alpha, \beta \in S$, es reicht $\alpha\cdot\beta,\alpha+\beta,\alpha^{-1}\in S$ zu zeigen. Nach (1) ist $K \leq K(\alpha)$ algebraisch, genauso ist $K(\alpha) \leq K(\alpha, \beta)$ algebraisch, wobei letzteres ein Körper ist, womit $\alpha \cdot \beta, \alpha + \beta, \alpha^{-1} \in K(\alpha, \beta)$ folgt und diese damit nach (3) algebraisch über $K$ sind, also in $S$ liegen.
     \end{enumerate}
@@ -141,8 +149,8 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
     \begin{itemize}
         \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn es $a_1,\hdots,a_n\in S$ paarweise verschieden und $ f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0$ mit $f(a_1,\hdots,a_n)=0$ gibt.
         Sonst nennen wir $S$ \emph{algebraisch unabhängig}\index{algebraisch unabhängig}.
-        \item Wir nennen $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$. Weiters heißt $E$ \emph{einfache transzendente Erweiterung von $K$}, wenn es ein über $K$ transzendentes Element $\alpha\in E$ mit $E=K(\alpha)$.
-        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig ist.
+        \item Wir nennen $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$. Weiters heißt $E$ \emph{einfache transzendente Erweiterung von $K$}, wenn es ein über $K$ transzendentes Element $\alpha\in E$ mit $E=K(\alpha)$ gibt.
+        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig über $K$ ist.
     \end{itemize}
 \end{definition}
 
@@ -153,7 +161,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \begin{proposition}
     Sei $K \leq E, S \subseteq E$. Dann sind äquivalent:
     \begin{enumerate}
-        \item $S$ ist maximal algebraisch unabhängig, also eine Transzendenzbasis.
+        \item $S$ ist maximal algebraisch unabhängig über $K$, also eine Transzendenzbasis von $E$ über $K$.
         \item $S$ ist minimal, sodass $E$ algebraisch über $K(S)$ ist.
         \item $S$ ist algebraisch unabhängig und $E$ ist algebraisch über $K(S)$.
     \end{enumerate}
@@ -191,6 +199,10 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
     Gilt $E = [A]$, so heißt $A$ \emph{algebraisches Erzeugendensystem von $E$ über $K$}\index{algebraisches Erzeugendensystem}.
 \end{definition}
 
+\begin{remark}
+    Ist $K\le E$ und $A$ eine Transzendenzbasis von $E$ über $K$, so ist $[A]=E$.
+\end{remark}
+
 \begin{lemma}
     Sei $K \leq E, A \subseteq E$. Dann gilt $[[A]] = [A]$.
 \end{lemma}
@@ -204,7 +216,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \end{lemma}
 
 \begin{proof}
-    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir voraus, dass $f \in K[A \cup \{b\}][x]$ gilt, also $f$ ein Polynom über der Ringerweiterung\footnote{Da $K(A\cup \{b\})$ isomorph zum Quotientenkörper von $K[A\cup \{b\}]$ ist, ist diese Wahl von $f$ wegen \cref{lemma:poly_in_quotientenkoerper} möglich.} von $K$ um $A\cup \{b\}$ ist. Sei $g(x,y) \in K[A][x,y]$ mit\footnote{An dieser Stelle geht die Voraussetzung $f\in K[A\cup\{b\}][x]$ ein. Die Koeffizienten $a_i\in K[A\cup \{b\}]$ von $f$ sind von der Form $q_i(b)$, wobei die $q_i\in K[A][y]$ ebenfalls Polynome sind.} $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
+    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir voraus, dass $f \in K[A \cup \{b\}][x]$ gilt, also $f$ ein Polynom über der Ringerweiterung\footnote{Da $K(A\cup \{b\})$ isomorph zum Quotientenkörper von $K[A\cup \{b\}]$ ist, ist diese Wahl von $f$ wegen \cref{lemma:poly_in_quotientenkoerper} möglich.} von $K$ um $A\cup \{b\}$ ist. Sei $g(x,y) \in K[A][x,y]$ mit\footnote{An dieser Stelle geht die Voraussetzung $f\in K[A\cup\{b\}][x]$ ein. Die Koeffizienten $a_i\in K[A\cup \{b\}]$ von $f$ sind von der Form $q_i(b)$, wobei die $q_i\in K[A][y]$ ebenfalls Polynome sind.} $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Wegen $c\not\in [A]$ ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
 \end{proof}
 
 \begin{corollary}
@@ -230,11 +242,11 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \end{proof}
 
 \begin{lemma}
-    Seien $K \leq E$, $B, C$ Transzendenzbasen und $B$ endlich. Dann ist $\vert B \vert = \vert C \vert$.
+    Seien $K \leq E$ und $B, C$ Transzendenzbasen von $E$ über $K$. Ist $B$ endlich so gilt $\vert B \vert = \vert C \vert$.
 \end{lemma}
 
 \begin{proof}
-    Wir tauschen induktiv Basisvektoren aus. Dazu sei $B_0:=B=\{b_1,\ldots,b_n\}$. Wähle $c_0 \in C_0$, sodass $B_{1}:=B\setminus\{b_0\}\cup\{c_0\}$ eine Transzendenzbasis ist. Es ist $c_0\not\in B\setminus\{b_0\}$, da sonst $B$ keine Transzendenzbasis wäre. Fährt man induktiv fort, so erhält man nach $n$ Schritten, dass $B_n\subseteq C$ eine Transzendenzbasis ist, also folgt
+    Wir tauschen induktiv Basisvektoren aus. Dazu sei $B_0:=B=\{b_1,\ldots,b_n\}$. Wähle $c_1 \in C_0$, sodass $B_{1}:=(B\setminus\{b_1\})\cup\{c_1\}$ eine Transzendenzbasis ist. Es ist $c_1\not\in B\setminus\{b_1\}$, da sonst $B$ keine Transzendenzbasis wäre. Fährt man induktiv fort, so erhält man nach $n$ Schritten, dass $B_n\subseteq C$ eine Transzendenzbasis ist, also folgt
     $|B|=|B_n|=|C|$.
 \end{proof}
 
@@ -245,14 +257,14 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
 \end{theorem}
 
 \begin{proof}
-    Sind $B$ oder $C$ endlich so folgt die Aussage aus dem vorigen Lemma. Seien also $B,C$ unendlich. Es gibt für alle $c \in C$ ein $B_c \subseteq B$ endlich mit $c \in [B_c]$. Es gilt $\bigcup_{c \in C} B_c = B$, womit $\vert B \vert \leq \sum_{c \in C} \vert B_c \vert = \vert C \vert$ folgt. Aus Symmetriegründen folgt die andere Ungleichung und damit die Gleichheit.
+    Sind $B$ oder $C$ endlich so folgt die Aussage aus dem vorigen Lemma. Seien also $B,C$ unendlich. Es gibt für alle $c \in C$ ein nichtleeres, endliches $B_c \subseteq B$ mit $c \in [B_c]$. Es gilt $\bigcup_{c \in C} B_c = B$, womit $\vert B \vert \leq \sum_{c \in C} \vert B_c \vert = \vert C \vert$ folgt. Aus Symmetriegründen folgt die andere Ungleichung und damit die Gleichheit.
 \end{proof}
 
 \begin{definition}
     Sei $K \leq E$. Wir definieren den \emph{Transzendenzgrad von $E$ über $K$}\index{Transzendenzgrad} als $\vert B \vert$, wobei $B \subseteq E$ eine beliebige Transzendenzbasis ist.
 \end{definition}
 
-\subsection{Adjunktion einer Nullstelle}
+\subsection{Adjunktion von Nullstellen}
 
 \begin{lemma}
     Sei $K$ ein Körper, $f \in K[x]$ irreduzibel mit $\deg f \geq 2$. Dann hat $f$ keine Nullstellen in $K$.
@@ -266,8 +278,8 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
     Betrachte $\mathbb{R} \leq \mathbb{C}$. Es ist $f(x) = x^2 + 1$ irreduzibel über $\mathbb{R}$. Wir wollen $i$ zu einer Nullstelle machen, dann gilt also $i^2 + 1 = 0$. Damit können wir auf $i^3 = i \cdot i^2 = i \cdot (-1)$ schließen, analog für $i^4, \hdots$. Wir können also das Verhalten von $i$ nur durch die Eigenschaft eine Nullstelle zu sein analysieren.
 \end{example}
 
-\begin{proposition}[Kronecker]
-    Sei $f \in K[x]$ irreduzibel. Dann gilt:
+\begin{proposition}[Kronecker]\label{proposition:Kronecker}
+    Sei $f \in K[x]$ irreduzibel mit $\deg f\geq 1$. Dann gilt:
     \begin{enumerate}
         \item $K[x] /_{(f)} =: L$ ist ein Körper.
         \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Körpereinbettung.
@@ -282,12 +294,16 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
 \begin{proof}{\ }
     \begin{enumerate}
         \item Es ist nur zu zeigen, dass $(f)$ ein maximales Ideal ist, da dann bereits die Aussage aus \cref*{prop:ringideale} folgt. In Hauptidealringen sind die maximalen Ideale gerade die von den irreduziblen Elementen erzeugten Ideale -- da $K[x]$ ein Hauptidealring ist, folgt also das zu Zeigende.
-        \item Klarerweise ist $\varphi$ ein Homomorphismus. Für die Injektivität betrachten wir $c + (f) = d + (f)$. Es ist also $c - d \in (f)$, also $f \mid c - d$, womit jedoch bereits $c = d$ folgt.
-        \item Klarerweise ist $\overline{\varphi}$ ein Homomorphismus. Für die Injektivität betrachten wir $\overline{\varphi}(g) = \overline{\varphi}(h)$, wegen Koeffizientenvergleich müssen dann jedoch bereits die Polynome übereinstimmen, es gilt also $g = h$. Für die Eindeutigkeit bemerken wir, dass $K[x]$ von $K \cup \{ x \}$ erzeugt wird. Quasi ist $K[x]$ also frei erzeugt von $x$ über $K$.
+        \item Klarerweise ist $\varphi$ ein Homomorphismus. Für die Injektivität betrachten wir $c + (f) = d + (f)$. Es ist also $c - d \in (f)$, also $f \mid c - d$, womit $c = d$ aus $\deg f\geq 1$ folgt.
+        \item Die Elemente aus $K[x]$ sind genau die Polynome in einer Variable mit Koeffizienten über $K$. Daher kann $\overline{\varphi}$ durch Anwendung von $\varphi$ auf die Koeffizienten von $f$ für ein Polynom $f\in K[x]$ definiert werden. Klarerweise ist die Abbildung $\overline{\varphi}$ ein Homomorphismus. Für die Injektivität betrachten wir $\overline{\varphi}(g) = \overline{\varphi}(h)$, wegen Koeffizientenvergleich müssen dann jedoch bereits die Polynome übereinstimmen, es gilt also $g = h$. Für die Eindeutigkeit bemerken wir, dass $K[x]$ von $K \cup \{ x \}$ erzeugt wird. Quasi ist $K[x]$ also frei erzeugt von $x$ über $K$.
         \item Es ist $f(x + (f)) = f(x) + (f) = 0 + (f) = 0_L$, da $f(x) \in (f)$.
         \item Es gilt $L = K(x + (f))$, da $K[x]$ von $K \cup \{x\}$ erzeugt wird. Weiters ist gerade $f$ das Minimalpolynom von $x + (f)$ über $K$, womit $[L : K] = \deg f$ folgt.
     \end{enumerate}
 \end{proof}
+
+\begin{example}
+    Die obige Proposition wollen wir am Beispiel $K=\mathbb{R}$ und $f(x):=x^2+1$ illustrieren. Für die Restklasse $x+(f)$ gilt $(x+(f))^2+(1+(f))=x^2+1+(f)=0+(f)$, daher ist $x+(f)$ eine Nullstelle von $f$ in $\mathbb{R}[x]/(x^2+1)$. Jede Restklasse $g+(f)\in\mathbb{R}[x]/(x^2+1)$ besitzt nach dem euklidischen Divisionsalgorithmus eine eindeutige Darstellung der Form $g+(f)=g_0+(f)$ mit $\deg g_0\le 1$. Daher ist $1+(f),x+(f)$ eine Basis von $\mathbb{R}[x]/(x^2+1)$ über $\mathbb{R}$. Damit ist $\mathbb{C}\to \mathbb{R}[x]/(x^2+1), a+ib\mapsto a+bx+(f)$ ein Vektorraumisomorphismus. Wegen $(a+bx+(f))(c+dx+(f))=ac+(bc+ad)x+bdx^2+(f)=ac-bd+(bc+ad)x+(f)$ ist diese Abbildung auch mit der Multiplikation verträglich, daher folgt $\mathbb{C}\cong \mathbb{R}[x]/(x^2+1)$.
+\end{example}
 
 \begin{definition}
     Sei $K \leq E$ und $P \subseteq K[x]$.
@@ -324,7 +340,7 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
     Übungsaufgabe.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:alg_abschluss-aequivalent}
     Sei $K \leq L$, dann sind äquivalent:
     \begin{enumerate}
         \item $L$ ist ein algebraischer Abschluss von $K$.
@@ -339,27 +355,29 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
 \end{proof}
 
 \begin{proposition}\label{prop:alg_abschluss}
-    Sei $K$ ein Körper. Dann gibt es einen Zerfällungskörper von $K[x]$ über $K$. Dieser ist insbesondere algebraisch über $K$. Damit gibt es insbesondere einen algebraischen Abschluss von $K$.
+    Sei $K$ ein Körper. Dann gibt es einen Zerfällungskörper von $K[x]$ über $K$.
 \end{proposition}
 
 \begin{proof}
     Wir geben einen Beweis an, welcher die Idee besonders gut widerspiegelt, allerdings technisch nicht korrekt ist, siehe dazu die nächste Bemerkung. Betrachte
     $$ \mathcal{S} := \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung } \}. $$
-    Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$: Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
+    Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$: Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Nach \cref{prop:alg_abschluss-aequivalent} ist $E$ ein algebraischer Abschluss von $K$.
 \end{proof}
 
 \begin{remark}
-    Streng genommen ist der obige Beweis ``falsch'', da $\mathcal{S}$ keine Menge sein muss. Da es beliebig viele isomorphe algebraische Körpererweiterungen gibt (mittels Umbenennung) ist $\mathcal{S}$ im Allgemeinen eine echte Klasse, womit wir das Lemma von Zorn nicht mehr anwenden können.
+    Streng genommen ist der obige Beweis ``falsch'' und wir wollen hier eine Skizze für einen korrekten Beweis liefern. Der vollständige Beweis kann in Goldstern et al.: \textit{Algebra -- Eine grundlagenorientierte Einführungsvorlesung} in dem Kapitel \textit{6. Körper} gefunden werden.
+
+    Da es beliebig viele isomorphe algebraische Körpererweiterungen gibt (mittels Umbenennung) ist $\mathcal{S}$ im Allgemeinen eine echte Klasse und damit keine Menge. Das Lemma von Zorn kann daher nicht angewandt werden.
 
     Wir reparieren dies, indem wir stattdessen definieren
     $$ \mathcal{S} = \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung}, E \subseteq X \} $$
     mit einer festen Menge $X$. Dann ist nämlich
     $$ \mathcal{S} \subseteq \mathcal{P}(X) \times \mathcal{P}((X \times X) \times X) \times \hdots, $$
-    wobei die Potenzmengen gerade die Körperoperationen umfangen, und damit eine Menge.
+    wobei die Potenzmengen gerade die Körperoperationen umfangen, und damit eine Menge ist.
 
     Bleibt zu klären was $X$ sein soll. Wir wählen $X$ als eine beliebige Menge mit $\vert X \vert > \max(\vert K \vert, \vert \mathbb{N} \vert)$. Beispielsweise könnte man $X = K \cup \mathcal{P}(K) \cup \mathbb{R}$ wählen.
 
-    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist, können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen:
+    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ im Vergleich zu $X$ ``klein'' ist, können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen:
 \end{remark}
 
 \begin{proposition}\label{prop:maechtigkeit_koerpeerweiterung}
@@ -382,9 +400,7 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
 
 \begin{theorem}\label{theorem:zerfaellungskoerper_existenz}
     Sei $K$ ein Köper, dann gilt:
-    \begin{enumerate}
-        \item $\forall P \subseteq K[x] \exists Z_P \ge K \;\text{Zerfällungskörper von }P\;\land Z_P \;\text{alg.}/_K$
-    \end{enumerate}
+        $$\forall P \subseteq K[x] \exists Z_P \ge K \;\text{Zerfällungskörper von }P\;\land Z_P \;\text{alg.}/_K$$
 \end{theorem}
 \begin{proof}
     $Z_{K[x]}$ existiert nach \cref{prop:alg_abschluss}. Sei $P \subseteq K[x]$ beliebig und definieren wir $Z_P := K(S)$ mit $S := \{\alpha \in Z_{K[x]} \mid \exists f \in P\setminus\{0\}: f(\alpha) = 0 \}$. $Z_P$ ist ein Nullstellenkörper von P, da er um genau um die Nullstellen erweitert wird. Die Minimalität von $Z_P$ folgt aus der Konstruktion.
@@ -408,10 +424,10 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
 
     Wir zeigen, dass für $\widetilde\varphi \in \mathcal{S}$ mit $\dom \widetilde\varphi \neq Z_1$ ein $\widehat\varphi \in \mathcal{S}$ existiert mit $\widehat\varphi \supsetneq \widetilde\varphi$.
     
-    Es ist $Z_1$ ein minimaler Nullstellenkörper von $P$, also existieren $f \in P$ und $\alpha \in Z_1\setminus\dom \widetilde{\varphi}$ mit $f(\alpha) = 0$. Sei $\mu_\alpha$ das Minimalpolynom von $\alpha$ über $\dom \widetilde\varphi$, also $\mu_\alpha \in (\dom \widetilde\varphi)[x]$. Als Minimalpolynom ist $\mu_\alpha$ irreduzibel über $\dom \widetilde\varphi$. Wenden wir nun $\widetilde\varphi$ auf die Koeffizienten von $\mu_\alpha$ an und schreiben dafür $\widetilde\varphi(\mu_\alpha)$, dann ist auch $\widetilde\varphi(\mu_\alpha)$ irreduzibel in $\ran \widetilde\varphi$ und aus $\mu_\alpha \mid f$ folgt $\widetilde\varphi(\mu_\alpha) \mid f$. 
-    Es zerfällt $f$ über $Z_2$ in Linearfaktoren (da $f \in P$) und wegen $\widetilde\varphi(\mu_\alpha) \mid f$ zerfällt damit auch $\widetilde\varphi(\mu_\alpha)$ über $Z_2$ in Linearfaktoren. Es gibt daher ein $\beta \in Z_2$ mit $\widetilde\varphi(\mu_\alpha)(\beta) = 0$. Da $\widetilde\varphi(\mu_\alpha)$ als Minimalpolynom irreduzibel über $\ran \widetilde\varphi$ ist, erhält man $\beta \not\in \ran \widetilde\varphi$.  $\widetilde\varphi(\mu_\alpha)$ ist also das Minimalpolynom von $\beta$, womit es ein $\widehat\varphi: (\dom \widetilde\varphi)(\alpha) \to (\ran \widetilde\varphi)(\beta)$ mit $\widehat\varphi\vert_{\dom \widetilde\varphi} = \widetilde\varphi$ und $\widehat\varphi(\alpha) = \beta$ gibt.
+    Es ist $Z_1$ ein minimaler Nullstellenkörper von $P$, also existieren $f \in P$ und $\alpha \in Z_1\setminus\dom \widetilde{\varphi}$ mit $f(\alpha) = 0$. Sei $\mu_\alpha$ das Minimalpolynom von $\alpha$ über $\dom \widetilde\varphi$, also $\mu_\alpha \in (\dom \widetilde\varphi)[x]$. Wir bemerken an der Stelle, dass $\deg\mu_\alpha\ge 2$ gelten muss. Als Minimalpolynom ist $\mu_\alpha$ irreduzibel über $\dom \widetilde\varphi$. Wenden wir nun $\widetilde\varphi$ auf die Koeffizienten von $\mu_\alpha$ an und schreiben dafür $\widetilde\varphi(\mu_\alpha)$, dann ist auch $\widetilde\varphi(\mu_\alpha)$ irreduzibel in $\ran \widetilde\varphi$ und aus $\mu_\alpha \mid f$ folgt $\widetilde\varphi(\mu_\alpha) \mid f$. 
+    Es zerfällt $f$ über $Z_2$ in Linearfaktoren (da $f \in P$) und wegen $\widetilde\varphi(\mu_\alpha) \mid f$ zerfällt damit auch $\widetilde\varphi(\mu_\alpha)$ über $Z_2$ in Linearfaktoren. Es gibt daher ein $\beta \in Z_2$ mit $\widetilde\varphi(\mu_\alpha)(\beta) = 0$. Da $\widetilde\varphi(\mu_\alpha)$ als Minimalpolynom irreduzibel über $\ran \widetilde\varphi$ ist, erhält man $\beta \not\in \ran \widetilde\varphi$ aus $\deg \widetilde{\varphi}(\mu_\alpha)\geq 2$.  $\widetilde\varphi(\mu_\alpha)$ ist also das Minimalpolynom von $\beta$, womit es nach \cref{prop:minimalpolynom_erweiterung} ein $\widehat\varphi: (\dom \widetilde\varphi)(\alpha) \to (\ran \widetilde\varphi)(\beta)$ mit $\widehat\varphi\vert_{\dom \widetilde\varphi} = \widetilde\varphi$ und $\widehat\varphi(\alpha) = \beta$ gibt.
 
-    Es muss nun also $\varphi$ auf ganz $Z_1$ definiert sein, da wir es sonst wie eben gezeigt erweitern könnten, was ein Widerspruch zur Maximalität wäre. Dass $\ran \varphi = Z_2$ ist erhält man entweder indem man den Beweis mit vertauschten Rollen wiederholt oder mit folgendem Widerspruch. Sei indirekt angenommen $\ran \varphi \subsetneq Z_2$. Es ist $\ran \varphi$ ein Nullstellenkörper, da er isomorph zu $Z_1$ ist. Dies ist ein Widerspruch zur Minimalität von $Z_2$ als Zerfällungskörper.
+    Es muss nun also $\varphi$ auf ganz $Z_1$ definiert sein, da wir es sonst wie eben gezeigt erweitern könnten, was ein Widerspruch zur Maximalität wäre. Dass $\ran \varphi = Z_2$ ist erhält man entweder indem man den Beweis mit vertauschten Rollen wiederholt oder mit folgendem Widerspruch. Sei indirekt angenommen $\ran \varphi \subsetneq Z_2$. Es ist $\ran \varphi$ ein Nullstellenkörper, da er isomorph zu $Z_1$ ist. Dies ist ein Widerspruch zur Minimalität von $Z_2$ als Zerfällungskörper. Daher ist $\varphi$ der gesuchte Isomorphismus.
 \end{proof}
 
 \begin{corollary}
@@ -433,22 +449,22 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
     Es gilt $\mathbb{Q} \le \overline{\mathbb{Q}} \le \mathbb{C}$. Die erste Erweiterung ist eine algebraische, abzählbare Erweiterung von $\mathbb{Q}$. Die zweite Erweiterung ist transzendent und überabzählbar.
 \end{remark}
 
-\subsection{Mehrfache Nullstellen}
+\subsection{Der Satz vom primitiven Element}
 Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ mehrfache Nullstellen hat.
 
 \begin{definition}
-    Sei $p \in K[x]$ mit einer Darstellung
-    $$ p(x) = q(x) \cdot \prod_{i=1}^n (x-\alpha_i)^{e_i} $$
-    mit $e_i \in \mathbb{N}^+$, $q \in K[x]$ ohne Nullstellen in $K$ und paarweise verschiedenen $\alpha_i$. Wir nennen $e_i$ die \emph{Vielfachheit}\index{Vielfachheit} der Nullstelle $\alpha_i$. Ist $e_i > 1$, so nennen wir $\alpha_i$ \emph{mehrfache Nullstelle}\index{mehrfache Nullstelle}.
+    Sei $p \in K[x]$ mit der Darstellung
+    $$ p(x) = a \cdot \prod_{i=1}^n (x-\alpha_i)^{e_i} $$
+    mit $e_i \in \mathbb{N}^+$, $a \in K\setminus 0$ und paarweise verschiedenen $\alpha_i\in \overline{K}$. Wir nennen $e_i$ die \emph{Vielfachheit}\index{Vielfachheit} der Nullstelle $\alpha_i$. Ist $e_i > 1$, so nennen wir $\alpha_i$ \emph{mehrfache Nullstelle}\index{mehrfache Nullstelle}.
 \end{definition}
 
 % TODO:
 \begin{example}
     Sei $f(x) = x^p - 1$ mit $p \in \mathbb{P}$.
 
-    Betrachten wir $K = \mathbb{Q}$: $e^\frac{2 \pi i k}{p}$ mit $k = 0, \ldots p-1$ sind verschiedene (einfache) Nullstellen und bereits alle.
+    Betrachten wir $K = \mathbb{Q}$: $e^\frac{2 \pi i k}{p}$ mit $k = 0, \ldots p-1\in\overline{\mathbb{Q}}$ sind verschiedene (einfache) Nullstellen und bereits alle.
 
-    Betrachten wir $K$ mit $\chara K = p$. Es ist $x^p - 1 = x^p - 1^p = (x-1)^p$. Es gibt also nur die $p$-fache Nullstelle $1$.
+    Betrachten wir $K$ mit $\chara K = p$: Es ist $x^p - 1 = x^p - 1^p = (x-1)^p$. Es gibt also auch in $\overline{\mathbb{Q}}$ nur die $p$-fache Nullstelle $1$.
 \end{example}
 
 \begin{definition}
@@ -462,26 +478,37 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \begin{lemma}\label{lemma:mehrfache_nullstellen}
     Seien $K$ ein Körper, $f \in K[x]\setminus\{0\}$ und $\alpha \in \overline{K}$. Es sind folgende Aussagen äquivalent:
     \begin{enumerate}
-        \item $\alpha$ ist mehrfache Nullstelle von $f$.
-        \item $\ggT(f, f')(\alpha) = 0.$
+        \item \label{item:lemma:mehrfache_nullstellen_1}$\alpha$ ist mehrfache Nullstelle von $f$.
+        \item \label{item:lemma:mehrfache_nullstellen_2}$\ggT(f, f')(\alpha) = 0.$
+        \item \label{item:lemma:mehrfache_nullstellen_3}$f(\alpha)=f'(\alpha)=0.$
     \end{enumerate}
 \end{lemma}
-% TODO: schön umformulieren
+
 \begin{proof}{\ }
     \begin{enumerate} 
-        \item[$\Rightarrow$:] Es gibt ein $g \in \overline{K}[x]$ mit $f = (x-\alpha)^2 g$. Es ist dann $f' = 2(x-\alpha)g + (x-\alpha)^2g'$, also $f'(\alpha) = 0$. Es gilt also $\mu_\alpha \mid f', f$ also weiter $\mu_\alpha \mid \ggT(f, f')$ und damit $\ggT(f, f')(\alpha) = 0$. 
+        \item[\ref*{item:lemma:mehrfache_nullstellen_1} $\Rightarrow$ \ref*{item:lemma:mehrfache_nullstellen_2}:] Es gibt ein $g \in \overline{K}[x]$ mit $f = (x-\alpha)^2 g$. Es ist dann $f' = 2(x-\alpha)g + (x-\alpha)^2g'$, also $f'(\alpha) = 0$. Es gilt also $\mu_\alpha \mid f', f$ also weiter $\mu_\alpha \mid \ggT(f, f')$ und damit $\ggT(f, f')(\alpha) = 0$. 
+
+        \item[\ref*{item:lemma:mehrfache_nullstellen_2} $\Rightarrow$ \ref*{item:lemma:mehrfache_nullstellen_3}:] Trivial.
          
-        \item[$\Leftarrow$:] Nehmen wir an $\ggT(f, f')(\alpha) = 0$. Da $\alpha$ eine Nullstelle von $\ggT(f, f')$ ist, ist auch $f(\alpha) = 0$ und es gibt ein $g \in \overline{K}[x]$ mit $f = (x-\alpha)g$. Damit ist $f' = g + (x-\alpha)g'$. Es ist $0 = f'(\alpha) = g(\alpha) + 0$. Damit gibt es $h \in \overline{K}[x]$ mit $g = (x-\alpha)h$ und daher ist $f = (x-\alpha)^2h$, also $\alpha$ eine mehrfache Nullstelle von $f$.
+        \item[\ref*{item:lemma:mehrfache_nullstellen_3} $\Rightarrow$ \ref*{item:lemma:mehrfache_nullstellen_1}:] Da $\alpha$ eine Nullstelle von $f$ ist, gibt es ein $g \in \overline{K}[x]$ mit $f = (x-\alpha)g$. Damit ist $f' = g + (x-\alpha)g'$. Es ist $0 = f'(\alpha) = g(\alpha) + 0$. Damit gibt es $h \in \overline{K}[x]$ mit $g = (x-\alpha)h$ und daher ist $f = (x-\alpha)^2h$, also $\alpha$ eine mehrfache Nullstelle von $f$.
     \end{enumerate}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:mehrfache-nst-bei-irreduzibel}
+    Seien $K$ ein Körper und $f\in K[x]$ irreduzibel. Dann hat $f$ genau dann eine mehrfache Nullstelle in $\overline{K}$, wenn $f'=0$ gilt.
+\end{lemma}
+
+\begin{proof}
+    Da $f$ irreduzibel ist, gilt $\ggT(f,f')\in\{1,f\}$. Nach vorigem Lemma hat $f$ daher genau dann eine mehrfache Nullstelle, wenn $\ggT(f,f')=f$ gilt. Wegen $f\neq 0$ gilt $\deg f'<\deg f$, daher ist $f\mid f'$ äquivalent zu $f'=0$. Insbesondere ist $\ggT(f,f')=f$ genau dann, wenn $f'=0$ gilt. Damit folgt die Behauptung.
+\end{proof}
+
+\begin{lemma}\label{lemma:mehrfache-nst-kriterium}
     Seien $K$ ein Körper und $f \in K[x]$ irreduzibel. Dann hat $f$ genau dann eine mehrfache Nullstelle in $\overline{K}$, wenn $\chara{K} = p\in\mathbb{P}$ und\footnote{Wir setzen hier $x^p$ für $x$ in $g$ ein.} $\exists g \in K[x]: f(x) = g(x^p)$.
 \end{lemma}
 \begin{proof}{\ }
     \begin{enumerate}
-        \item[$\Rightarrow$:] Sei angenommen $f$ hat eine mehrfache Nullstelle in $\overline{K}$. $f$ ist irreduzibel, also wissen wir $\ggT(f,f') \in \{1,f\}$. Nach obigem Lemma hat $\ggT(f,f')$ eine Nullstelle womit wir $\ggT(f, f') = f$ erhalten. Es gilt daher $f \mid f'$ und da $f\neq 0$ ist, muss $\deg f' < \deg f$ gelten. Gemeinsam impliziert das $f' = 0$. Da $f$ eine mehrfache Nullstelle in $\overline{K}$ hat, muss $\deg f\geq 2$ gelten. Aus der Definition der formalen Ableitung wird klar, dass $K$ endliche Charakteristik haben muss. Da die Charakteristik immer eine Primzahl sein muss, gibt es $p\in\mathbb{P}$ mit $\chara K = p$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $i a_i=0$ gilt, womit also für alle $i\in\{1,\ldots,n\}$ gilt: Aus $a_i \not= 0$ folgt $p \mid i$. Das liefert die Darstellung $f = g(x^p)$.
-        \item[$\Leftarrow$:] Sei angenommen $\sum_{i=0}^na_iax^i=f(x) = g(x^p)$ und $\chara K = p \in \mathbb{P}$. Es gilt dann $f' = 0$, da $p \mid i$ wenn $a_i \not= 0$. Daher ist $\ggT(f, f') = \ggT(f, 0) = f$. In $\overline{K}$ hat $f$ eine Nullstelle, womit $\ggT(f, f')$ eine Nullstelle hat und nach obigem Lemma $f$ damit eine mehrfache Nullstelle hat.
+        \item[$\Rightarrow$:] Da $f$ eine mehrfache Nullstelle in $\overline{K}$ hat, muss $\deg f\geq 2$ gelten. Aus der Definition der formalen Ableitung wird klar, dass $K$ endliche Charakteristik haben muss. Da die Charakteristik immer eine Primzahl sein muss, gibt es $p\in\mathbb{P}$ mit $\chara K = p$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $i a_i=0$ gilt, womit also für alle $i\in\{1,\ldots,n\}$ gilt: Aus $a_i \not= 0$ folgt $p \mid i$. Das liefert die Darstellung $f(x) = g(x^p)$.
+        \item[$\Leftarrow$:] Sei angenommen $\sum_{i=0}^na_ix^i=f(x) = g(x^p)$ und $\chara K = p \in \mathbb{P}$. Es gilt dann $f' = 0$, da $p \mid i$ wenn $a_i \not= 0$. Also folgt die Aussage aus dem letzten Lemma.
     \end{enumerate}
 \end{proof}
 
@@ -495,21 +522,22 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
     Sei $d$ ein ggT in $K[x]$ und $d'$ ein ggT in $K'[x]$, beide von $(s,t)$. Klarerweise gilt $d\mid d'$ (in $K'[x]$). Nun existieren nach dem Lemma von Bezout $u,v\in K[x]$ mit $d=us+vt$. Wegen $d'\mid s$ und $d'\mid t$ existieren $s',t'\in K[x]$ mit $s=d's'$ und $t=d's'$. Also folgt $d=us+vt=u(d's')+v(d't')=d'(us'+vs')$, daher gilt auch $d'\mid d$ (wieder in $K'[x]$). Also folgt die Behauptung $d\sim d'$.
 \end{proof}
 
-\begin{theorem}[vom primitiven Element]\label{theorem:primitives_element}
+\begin{theorem}[Satz vom primitiven Element]\label{theorem:primitives_element}
     Sei $K \leq L$ eine endlichdimensionale Erweiterung mit $\chara K = 0$, so gibt es ein $\alpha \in L$, sodass $L = K(\alpha)$.
 \end{theorem}
 
 \begin{proof}
     Sei $L = K(u_1, \hdots, u_r)$ mit $r$ minimal. Wir zeigen die Aussage mittels Induktion nach $r$. Ist $r = 1$ so ist die Aussage trivial. Sonst ist $L = K(u_1, \hdots, u_{r+1}) = K(u_1, \hdots, u_r)(u_{r+1}) = K(\alpha)(u_{r+1})$. Nennen wir $\beta := u_{r+1}$. Wir müssen also nur die Existenz eines $\delta \in L$ zeigen mit $K(\delta) = K(\alpha, \beta)$. Betrachte in $\overline{K}[x]$:
     $$ \mu_\alpha = (x - \alpha_1) \hdots (x - \alpha_s) \quad \mathrm{und}\quad
-     \mu_\beta = (x - \beta_1) \hdots (x - \beta_t), $$ \obda sei $\alpha = \alpha_1, \beta = \beta_1$. Wegen $\chara K = 0$ gilt $i\neq \ell\Rightarrow\alpha_i\neq\alpha_\ell$ und $j\neq k\Rightarrow \beta_j\neq\beta_k$. Betrachten wir nun Gleichungen der Form
+     \mu_\beta = (x - \beta_1) \hdots (x - \beta_t),$$ sei $\alpha = \alpha_1, \beta = \beta_1$. Wegen $\chara K = 0$ und \cref{lemma:mehrfache-nst-kriterium} gilt $i\neq \ell\Rightarrow\alpha_i\neq\alpha_\ell$ und $j\neq k\Rightarrow \beta_j\neq\beta_k$. Betrachten wir nun Gleichungen der Form
     $$ \alpha_i + x \beta_j = \alpha + x \beta, $$
     wobei $i \geq 1, j \geq 2$. Jede dieser Gleichungen besitzt höchstens eine Lösung. Da der Körper $K$ wegen $\chara K=0$ unendlich ist, existiert ein $c \in K$ sodass für alle solchen Gleichungen gilt: $$ \alpha_i + c \beta_j \neq \alpha + c \beta. $$
     Definiere $\delta := \alpha + c \beta \in K(\alpha, \beta)$. Es bleibt $\alpha, \beta \in K(\delta)$ zu zeigen. Definiere
     $$ f(x) := \mu_\alpha (\delta - cx) \in K(\delta)[x]. $$
-    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$). Es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$ und wegen dem letzten Lemma auch in $K(\delta)[x]$. Damit muss $x-\beta\in K(\delta)[x]$ gelten, also $\beta\in K(\delta)$ und auch $\alpha=\delta-c\beta\in K(\delta)$.
+    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, \mu_\beta$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$). Es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$ und wegen dem letzten Lemma auch in $K(\delta)[x]$. Damit muss $x-\beta\in K(\delta)[x]$ gelten, also $\beta\in K(\delta)$ und auch $\alpha=\delta-c\beta\in K(\delta)$.
 \end{proof}
 
+Über einfache transzendente Erweiterungen ist die folgende Tatsache bekannt:
 \begin{remark}
-    Sei $K < Z \leq K(x)$ eine einfache transzendente Erweiterung. Dann besagt der Satz von Lüroth (welcher hier nicht bewiesen wird), dass $K \leq Z$ auch eine einfache, transzendente Erweiterung ist.
+    Sei $K\leq K(x)$ eine einfache transzendente Erweiterung und $K\le Z\le K(x)$ mit $Z\neq K$. Dann besagt der Satz von Lüroth (welcher hier nicht bewiesen wird), dass $K \leq Z$ ebenfalls eine einfache, transzendente Erweiterung ist.
 \end{remark}
