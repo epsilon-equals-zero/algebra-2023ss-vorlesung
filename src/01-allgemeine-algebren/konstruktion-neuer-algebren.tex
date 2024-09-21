@@ -415,13 +415,13 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{samepage}    
 \begin{definition}
-    Sei $\mathcal{K}$ eine Klasse von Algebren. Dann definieren\footnote{Die Notationen \glqq S\grqq{} und \glqq{}P\grqq{} kommen von den Wörtern (beziehungsweise ihren englischen Übersetzungen) \glqq Subalgebra\grqq{} und \glqq Produktalgbra\grqq{}. Die Notation \glqq H\grqq{} hat ihre Abstammung von den \glqq homomorphen Bildern\grqq{}, was durch \cref{satz:homomorphiesatz} gerechtfertigt wird.} wir:
+    Sei $\mathcal{K}$ eine Klasse von Algebren. Dann definieren\footnote{Die Notationen \glqq H\grqq{}, \glqq S\grqq{} und \glqq{}P\grqq{} kommen von den Wörtern (beziehungsweise ihren englischen Übersetzungen) \glqq homomorphe Bilder\grqq{}, \glqq Subalgebra\grqq{} und \glqq Produktalgebra\grqq{}.} wir:
     \begin{itemize}
-        \item $\mathrm{H}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A /_\sim}$, wobei $\mathfrak{A} \in \mathcal{K}$ und $\sim$ eine Kongruenzrelation auf $\mathfrak{A}$ sind.
+        \item $\mathrm{H}\mathcal{K}$ als die Klasse aller Algebren $\phi[A]$, wobei $\mathfrak{A}\in\mathcal{K}$, $\mathfrak{B}$ eine Algebra vom selben Typ wie $\mathfrak{A}$ und $\phi:\mathfrak{A}\to \mathfrak{B}$ ein Homomorphismus ist.
         \item $\mathrm{S}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A}'$, zu denen es eine Algebra $\mathfrak{A} \in \mathcal{K}$ mit $\mathfrak{A}' \leq \mathfrak{A}$ gibt.
         \item $\mathrm{P}\mathcal{K}$ als die Klasse aller Algebren $\prod_{j \in J} \mathfrak{A}_j$, wobei $J$ eine beliebige Indexmenge und alle $\mathfrak{A}_j \in \mathcal{K}$ sind.
     \end{itemize}
-    Wir sagen, dass $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen ist, wenn $\mathrm{HSP}\mathcal{K} = \mathcal{K}$ gilt. Ist $\mathcal{A}$ eine Algebra, so ist auch $H\mathfrak{A}:=H{\mathfrak{A}}$ eine Kurzschreibweise. Entsprechendes gilt auch für $S\mathfrak{A}$ und $P\mathfrak{A}$.
+    Wir sagen, dass $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen ist, wenn $\mathrm{HSP}\mathcal{K} = \mathcal{K}$ gilt. Ist $\mathcal{A}$ eine Algebra, so ist auch $H\mathfrak{A}:=H\{\mathfrak{A}\}$ eine Kurzschreibweise. Entsprechendes gilt auch für $S\mathfrak{A}$ und $P\mathfrak{A}$.
 \end{definition}
 \end{samepage}
 
@@ -484,7 +484,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     \end{align*}
     An den Stellen die mit $(*)$ markiert sind, wurde die Definition von $\varphi$ verwendet.
 
-    Mit dem Homomorphiesatz erhalten wir damit einen Isomorphismus $\tilde{\varphi} : \mathfrak{S} /_{\ker \varphi} \to \mathfrak{A}$. Damit ist $\mathfrak{A}$ isomorph zu einer Faktoralgebra, welche durch $\mathrm{HSP}$ aus $\mathfrak{B}$ hervorgeht und somit $\mathfrak A\in \mathrm{HSP}\mathcal{K}$, was zu zeigen war.
+    Damit erhalten wir, dass $\mathfrak{A}$ ein homomorphes Bild von $\mathfrak{S}$ ist, also gilt $\mathfrak{A}\in\mathrm{HSP}\mathcal{K}$.
 \end{proof}
 
 \begin{corollary}
