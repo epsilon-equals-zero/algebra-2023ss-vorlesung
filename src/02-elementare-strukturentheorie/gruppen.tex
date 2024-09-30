@@ -190,10 +190,9 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         \item[\ref*{item:theorem:normalteiler_equiv_4'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_1}:]  
         Zeigen wir zuerst die Eindeutigkeit: Sei angenommen es gibt eine Kongruenzrelation $\sim$ auf $G$ mit $N = [e]_\sim$. Für $x, y\in G$ gilt dann 
         \begin{itemize}
-            \item $x \sim y \;\Rightarrow\; x^{-1}x \sim x^{-1}y \; \Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; x^{-1}y \in [e]_\sim = N$ und
-            \item $x^{-1}y \in N = [e]_\sim \;\Leftrightarrow\; e \sim x^{-1}y \;\Rightarrow\; x = xe \sim x(x^{-1}y) = y$.
+            \item $x \sim y \;\Leftrightarrow\; x^{-1}x \sim x^{-1}y \; \Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; x^{-1}y \in [e]_\sim = N$,
         \end{itemize}
-        Es ist dann also $x \sim y \Leftrightarrow x^{-1}y \in N$. 
+        also $x \sim y \Leftrightarrow x^{-1}y \in N$. 
         
         Zeigen wir nun noch, dass dieses $\sim$ eine Kongruenzrelation auf $G$ ist. Nach \cref{lemma:euqivrel_linksnebenklassen} ist $\sim$ eine Äquivalenzrelation, bleibt also noch die Invarianz unter $G$ zu zeigen. 
         \begin{itemize}
@@ -210,15 +209,22 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \begin{remark}
     \cref{theorem:normalteiler_equiv} beschreibt einige Eigenschaften von Normalteilern.
     \begin{itemize}
-        \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelationen auf Gruppen. Betrachtet man die Menge $N$ aller Normalteiler einer Gruppe $G$ mit den Operationen $A\land_N B:=A\cap B$ und $A\lor_N B:=A\cdot B$ mit dem Komplexprodukt aus \cref{def:komplexprodukt}, so erhält man einen Verband. Weiters kann man die Menge aller Kongruenzrelationen auf $G$ betrachten, welche wir mit $\mathrm{Cong}(G)$ bezeichnen. Für $R,S\in \mathrm{Cong}(G)$ definiert man $R\land_\sim S:=R\cap S$. Weiters bezeichnen wir mit $\mathrm{cl}_G(\sim):=\bigcap\{R\in \mathrm{Cong}(G)\mid \sim\subseteq R\}$ die kleinste Kongruenzrelation, die $\sim$ enthält.
-        Dann ist mit $R\lor_\sim S:=\mathrm{cl}_G(R\cup S)$ durch $(\mathrm{Cong}(G),\land_\sim,\lor_\sim)$ ein Verband gegeben. Die beiden beschriebenen Verbände sind isomorph, wobei die genannte Bijektionen einen Verbandsisomorphismus darstellt.
+        \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelationen auf Gruppen. Sei $G$ eine Gruppe und betrachte die Menge $\mathcal{N}$ aller Normalteiler einer Gruppe $G$. Definieren wir für Untergruppen $U_1, U_2 \leq G$ ihr \emph{Komplexprodukt} $U_1 \cdot U_2 := \{ u_1 \cdot u_2 \mid u_1 \in U_1, u_2 \in U_2 \}$ und versehen $\mathcal{N}$ mit den Operationen
+        $$ A\land_\mathcal{N} B:=A\cap B, \quad \textrm{und} \quad A\lor_\mathcal{N} B:=A\cdot B, $$
+        für $A, B \in \mathcal{N}$, so erhält man einen Verband.
+        
+        Andererseits kann man die Menge aller Kongruenzrelationen auf $G$ betrachten, welche wir mit $\mathrm{Con}(G)$ bezeichnen. Für $C \in G^2$ definieren wir $\mathrm{cl}_G(C):=\bigcap\{ D \in \mathrm{Con}(G) \mid C \subseteq D \}$, damit ist durch $\mathrm{Con}(G)$ versehen mit den Operationen
+        $$ R\land_{\mathrm{Con}(G)} S:=R\cap S, \quad \textrm{und} \quad R\lor_{\mathrm{Con}(G)} S:=\mathrm{cl}_G(R\cup S), $$ 
+        für $R, S \in \mathrm{Con}(G)$ ein Verband gegeben. Die beiden beschriebenen Verbände sind isomorph, wobei die Bijektion
+        $$ \varphi : \mathcal{N} \to \mathrm{Con}(G), N \mapsto \{ (x, y) \in G^2 \mid x^{-1} y \in N \} $$
+        einen Verbandsisomorphismus darstellt.
         
         \item \ref*{item:theorem:normalteiler_equiv_2}, \ref*{item:theorem:normalteiler_equiv_2'} beschreiben die Darstellung des Normalteilers über den Kern eines Homomorphismus $\varphi: G \to H$. Es ist $\ker \varphi = \{g \in G \mid \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}) = N$.
         \item \ref*{item:theorem:normalteiler_equiv_3}, \ref*{item:theorem:normalteiler_equiv_3'} liefern direkt, dass Normalteiler unter Abbildungen $\pi_x: G \to G, g \mapsto xgx^{-1}$ abgeschlossen sind. So eine Abbildung nennt man \emph{inneren Automorphismus}\index{innerer Automorphismus}.
         \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen einer Untergruppe genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
     \end{itemize}
 
-    Insbesondere sind alle Äquivalenzklassen einer Kongruenzrelation gleich groß, da sie lediglich ``Verschiebungen'' der Äquivalenzklasse des neutralen Elements sind.
+    Insbesondere sind alle Äquivalenzklassen einer Kongruenzrelation auf einer Gruppe gleich groß, da sie lediglich ``Verschiebungen'' der Äquivalenzklasse des neutralen Elements sind.
 \end{remark}
 
 \begin{corollary} \label{corollary:abelsch-normalteiler-untergruppe}
@@ -242,9 +248,10 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 
 \begin{definition}
     Sei $G$ eine Gruppe, $N \vartriangleleft G$ ein Normalteiler und $\sim$ die entsprechende Kongruenzrelation. Wir definieren die \emph{Faktorgruppe} \index{Gruppe!Faktor-}
-    $$ G /_N := G /_\sim = \{ aN \mid a \in G \}. $$
-    Dabei ist
-    $$ aN \cdot bN := (a \cdot b)N. $$
+    $$ G /_N := G /_\sim = \{ aN \mid a \in G \}, $$
+    versehen mit den Operationen
+    $$  aN \cdot bN := (a \cdot b)N, \quad \textrm{und} \quad (aN)^{-1} := (a^{-1}) N, $$
+    für $aN, bN \in G /_N$, und dem neutralen Element $eN \in G /_N$.
     Man überzeugt sich leicht davon, dass dies gerade dann wohldefiniert ist wenn eben $N$ ein Normalteiler ist.
 \end{definition}
 
@@ -265,8 +272,8 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \begin{example}
     Betrachte die Gruppe $(\Gl_2(\mathbb{R}), \cdot, E_2, {}^{-1})$ und
     $$ N := \{ A \in \Gl_2(\mathbb{R}) \mid \det A = 1 \}. $$
-    Für ein beliebiges $A \in \Gl_2(\mathbb{R})$ gilt $ A N A^{-1} \subseteq N, $ da mit $C \in N$
-    $$ \det(A C A^{-1}) = \det A \det C \det A^{-1} = \det C = 1. $$
+    Für $B \in \Gl_2(\mathbb{R})$ gilt $ B N B^{-1} \subseteq N, $ da mit $C \in N$
+    $$ \det(B C B^{-1}) = \det B \det C \det B^{-1} = \det C = 1. $$
     Also ist $N$ ein Normalteiler. Sei $\sim$ die entsprechende Äquivalenzrelation, wir wollen die Struktur von $\Gl_2(\mathbb{R})/_\sim$ analysieren. Es gilt
     $$ A \sim B \Leftrightarrow A \cdot B^{-1} \in N \Leftrightarrow \det(A \cdot B^{-1}) = 1 \Leftrightarrow \det A = \det B, $$
     die Äquivalenzklassen hängen also nur von der Determinante und ansonsten nicht von der unterliegenden Matrixstruktur ab. Also ist $\Gl_2(\mathbb{R})/_\sim \cong (\mathbb{R} \setminus \{0\}, \cdot, 1, {}^{-1})$.
@@ -286,14 +293,10 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     Wir nennen $G'$ die \emph{Ableitung} oder auch die \emph{Kommutatorgruppe} von $G$. \index{Gruppe!Ableitung}\index{Gruppe!Kommutatorgruppe}
 \end{definition}
     
-\begin{proposition}
-    Sei $G$ eine Gruppe. Ist $G$ abelsch, so ist $G' = \{ e \}$.
-\end{proposition}
-
-\begin{proof}
-    Ist $G$ abelsch so ist
-    $$ G' = \langle \{ a^{-1} b^{-1} a b \mid a, b \in G \} \rangle = \langle \{ a^{-1} b^{-1} b a \mid a, b \in G \} \rangle = \langle \{e\} \rangle = \{e\}. $$
-\end{proof}
+\begin{remark}
+    Für eine abelsche Gruppe $G$ gilt $G' = \{ e \}$, da dann für $a, b \in G$
+    $$ [a, b] = a^{-1} b^{-1} a b = a^{-1} b^{-1} b a = e. $$
+\end{remark}
 
 \begin{theorem}\label{theorem:kommutatorgruppe}
     Sei $G$ eine Gruppe. Dann gilt:
@@ -305,17 +308,17 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \end{theorem}
 
 \begin{proof}
-    (2) ist ein Spezialfall von (3).
-
     Um (3) einzusehen sei $N \vartriangleleft G$, so folgt mit obiger Bemerkung sofort
     \begin{align*}
         G/_N \textrm{ abelsch} &\Leftrightarrow \forall a, b: (aN)(bN) = (bN)(aN) \Leftrightarrow \\ &\Leftrightarrow \forall a, b: a^{-1}b^{-1} a b \in N \Leftrightarrow \forall a, b: [a, b] \in N \Leftrightarrow N \supseteq G'.
     \end{align*}
 
+    (2) folgt nun als Spezialfall von (3).
+
     Zeigen wir nun (1). Sei $h : G \to G$ ein beliebiger Endomorphismus, dann gilt für alle $a, b \in G$, dass $h([a,b]) = [h(a), h(b)]$, also $h(G') \subseteq G'$. Für beliebiges $x \in G$ definieren wir
-    $$ h_x : G \to G, g \mapsto xgx^{-1}, $$
-    so ist $h_x$ ein Automorphismus\footnote{$h_x$ ist wie früher schon bemerkt ein \emph{innerer Automorphismus}.}. Also ist
-    $$ x G' x^{-1} = h_x(G') \subseteq G', $$
+    $$ \pi_x : G \to G, g \mapsto xgx^{-1}, $$
+    so ist $\pi_x$ ein Automorphismus\footnote{$h_x$ ist wie früher schon bemerkt ein \emph{innerer Automorphismus}.}. Also ist
+    $$ x G' x^{-1} = \pi_x(G') \subseteq G', $$
     womit $G' \vartriangleleft G$ nach \cref{theorem:normalteiler_equiv} \cref{item:theorem:normalteiler_equiv_3'} folgt.
 \end{proof}
 
@@ -333,7 +336,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \end{definition}
 
 \begin{remark} \label{remark:inneres-direktes-produkt-notwendig}
-    Wir sammeln nun notwendige Bedingungen dafür, dass $G$ ein inneres direktes Produkt ist.
+    Wir sammeln nun notwendige Bedingungen dafür, dass $G$ ein inneres direktes Produkt $U_1 \odot \hdots \odot U_n$ ist.
     
     Für $i \in \{ 1,\hdots,n \}$ definiere $V_i := U_1 \cdot \hdots \cdot U_{i-1} \cdot U_{i+1} \cdot \hdots \cdot U_n$, so muss $U_i \cap V_i = \{ e \}$ gelten:
     Sonst gäbe es $(u_j)_{j=1}^n \in (U_j)_{j=1}^n, u_i \neq e$ mit
@@ -341,16 +344,18 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     womit $\varphi$ nicht injektiv wäre.
 
     Weiters muss $U_i \vartriangleleft G$ sein. Um dies einzusehen, betrachte die Abbildung
-    $$ \psi_i : U_1 \times ... \times U_n \to U_1 \times ... \times U_{i-1} \times U_{i+1} \times ... \times U_n, (u_i)_{i=1}^n \mapsto (u_i, \hdots, u_{i-1}, u_{i+1}, \hdots, u_n). $$
+    $$ \psi_i : U_1 \times \hdots \times U_n \to U_1 \times \hdots \times U_n, (u_i)_{i=1}^n \mapsto (u_1, \hdots, u_{i-1}, e, u_{i+1}, \hdots, u_n). $$
     Diese ist ein Homomorphismus, womit
-    $$ \ker \psi_i = \{e\} \times ... \times \{e\} \times U_i \times \{e\} \times ... \times \{e\} \vartriangleleft U_1 \times ... \times U_n. $$
-    Damit ist $U_i = \varphi(\ker \psi_i) \vartriangleleft G$.
+    $$ \ker \psi_i = \{e\} \times \hdots \times \{e\} \times U_i \times \{e\} \times \hdots \times \{e\} \vartriangleleft U_1 \times \hdots \times U_n. $$
+    Sei $\widetilde{\psi_i} = \varphi \circ \psi_i \circ \varphi^{-1}$, so ist dies ein Homomorphismus mit $\ker \widetilde{\psi_i} = \varphi(\ker \psi_i) = U_i$, womit $U_i \vartriangleleft G$ folgt.
 
     Zuletzt gilt in einem direkten inneren Produkt für $i \neq j, x \in U_i, y \in U_j$, dass $xy = yx$. Um dies einzusehen sei \obda $i < j$, so gilt
     \begin{align*}        
         xy &= \varphi(e, \hdots, e, \overbrace{x}^{\textrm{$i$-te Stelle}}, e, \hdots, e) \cdot \varphi(e, \hdots, e, \overbrace{y}^{\textrm{$j$-te Stelle}}, e, \hdots, e) =  \\ &= \varphi(e, \hdots, e, \overbrace{x}^{\textrm{$i$-te Stelle}}, e, \hdots, e, \overbrace{y}^{\textrm{$j$-te Stelle}}, e, \hdots, e) = \\ &= \varphi(e, \hdots, e, \overbrace{y}^{\textrm{$i$-te Stelle}}, e, \hdots, e) \cdot \varphi(e, \hdots, e, \overbrace{x}^{\textrm{$j$-te Stelle}}, e, \hdots, e) = yx.
     \end{align*}
 \end{remark}
+
+Tatsächlich folgt die Kommutativität aber bereits aus den vorherigen Eigenschaften:
 
 \begin{lemma} \label{lemma:gruppe-normalteiler-kommutativ}
     Sei $G$ eine Gruppe, $U, V \vartriangleleft G$, $U \cap V = \{ e \}$, dann gilt für alle $u \in U$ und $v \in V$, dass $uv = vu$.
@@ -384,7 +389,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     $$ \prod_{i \in I}^w U_i := \{ f : I \to \bigcup_{i \in I} U_i \mid \forall i \in I: f(i) \in U_i \land f(i) = e \textrm{ für fast alle } i \in I \}. $$
     Definiere weiters
     $$ \varphi : \prod_{i \in I}^w U_i \to G, f \mapsto f(i_1) \cdot \hdots \cdot f(i_k), $$
-    wobei $i_1 < \hdots < i_k $ genau jene Indizes sind, für die $f(i_j) \neq e$ ist.
+    wobei $i_1 < \hdots < i_k $ genau jene Indizes $i$ sind, für die $f(i) \neq e$ ist.
 
     Falls $\varphi$ ein Isomorphismus ist, so nennen wir $G$ \emph{inneres direktes Produkt} von $(U_i)_{i \in I}$.
 
