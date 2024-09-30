@@ -135,6 +135,7 @@
 \newcommand{\dd}[1]{\frac{\text{d}}{\text{d}#1}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand{\tagline}[1][]{\addtocounter{equation}{1}\tag{\theequation}\ifx\relax#1\relax\else\label{#1}\fi}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 
 \let\vec\mathbf
 

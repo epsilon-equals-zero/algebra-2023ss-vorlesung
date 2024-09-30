@@ -424,7 +424,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         \item Diese Aussage folgt direkt aus 1., da abelsche Gruppen eine Varietät bilden. Es ist $\mathbb{Z}$ abelsch, also auch dessen homomorphe Bilder, insbesondere $G$.
         \item Sei $F \in \mathrm{H}G$ beliebig, es gibt also einen surjektiven Homomorphismus $\varphi: G \to F$. Aus 1. erhalten wir außerdem, da $G$ zyklisch ist, die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Die Verkettung $\varphi \circ h: \mathbb{Z} \to F$ ist nun erneut ein surjektiver Homomorphismus, weshalb wir erneut aus 1. erhalten, dass $F$ zyklisch ist.
         \item Sei $F \in \mathrm{S}G$ beliebig, also $F \le G$. Weiter sei $h: \mathbb{Z} \to G$ ein nach 1. existierender surjektiver Homomorphismus.
-        Wir wählen nun $U := h^{-1}(F) \le \mathbb{Z}$ und $m := \min\{n > 0 \mid n \in U\}$ bzw. $0$, falls die Menge leer ist. 
+        Wir wählen nun $U := h^{-1}(F) \le \mathbb{Z}$ und $m := \min\{n > 0 \mid n \in U\}$ bzw. $0$, falls die Menge leer ist.
         
         Wir behaupten nun, dass $U = m \mathbb{Z}$. Sei zuerst $mk \in m\mathbb{Z}$, dann folgt, da $m \in U$ und $U$ als Untergruppe unter Addition und Inversenbildung abgeschlossen ist, induktiv auch $mk \in U$. Es gilt also $U \supseteq m\mathbb{Z}$. Sei nun $n \in U$ und \obda $n > 0$. Es gibt dann $k \in \mathbb{N}$ und $r \in \{0, \ldots, m-1\}$, sodass $n = mk+r$. Durch Umformen erhalten wir $r = n - mk \in U$. Aufgrund der Wahl von $m$ folgt nun, dass $r = 0$, da es sonst ein kleineres positives Element als $m$ in $U$ gäbe, im Widerspruch zur Minimalität von $m$. Es ist also $n = mk \in m\mathbb{Z}$, womit $U = m\mathbb{Z}$ folgt.
 
@@ -437,20 +437,20 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{remark}
 
 \begin{proposition}
-    Sei $G$ eine zyklische Gruppe. Dann ist $G \cong \mathbb{Z}$ oder $G \cong \mathbb{Z}_m$.
+    Sei $G$ eine zyklische Gruppe. Dann ist entweder $G \cong \mathbb{Z}$ oder es gibt ein $m \in \mathbb{N} \setminus \{ 0 \}$, sodass $G \cong \mathbb{Z}_m$.
 \end{proposition}
 \begin{proof}
-    Aus \cref{prop:zyklische_gruppen_1} folgt die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Der Homomorphiesatz (\ref{satz:homomorphiesatz}) liefert, dass $G \cong \mathbb{Z}/_{\ker h}$. Ist $\ker h = \{0\}$, so ist $G \cong \mathbb{Z}$. Ist $\ker h$ nicht trivial, so gibt es ein $m \in \mathbb{N}$, sodass $\ker h = m\mathbb{Z}$, da der Kern immer eine Untergruppe ist und im Beweis von \cref{prop:zyklische_gruppen_1} gezeigt wurde, dass alle Untergruppen von $\mathbb{Z}$ diese Form haben. Es folgt also $G \cong \mathbb{Z}/_{m\mathbb{Z}} \cong \mathbb{Z}_m$.
+    Aus \cref{prop:zyklische_gruppen_1} folgt die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Der Homomorphiesatz (\ref{satz:homomorphiesatz}) liefert, dass $G \cong \mathbb{Z}/_{\ker h}$. Ist $\ker h = \{0\}$, so ist $G \cong \mathbb{Z}$. Ist $\ker h$ nicht trivial, so gibt es ein $m \in \mathbb{N} \setminus \{ 0 \}$, sodass $\ker h = m\mathbb{Z}$, da der Kern immer eine Untergruppe ist und im Beweis von \cref{prop:zyklische_gruppen_1} gezeigt wurde, dass alle Untergruppen von $\mathbb{Z}$ diese Form haben. Es folgt also $G \cong \mathbb{Z}/_{m\mathbb{Z}} \cong \mathbb{Z}_m$.
 \end{proof}
 
 \begin{definition}
     Für $m\in\mathbb{N}\setminus\{0\}$ bezeichnen wir mit $C_m$ die Gruppe $(\{0,\ldots,m-1\},+,0,-)$ wobei
-    $$a+b:=\min\{n\geq 0\mid a+b\equiv n \;\mathrm{mod}(m)\}.$$
+    $$ a+b := \min\{n\geq 0\mid a+b \equiv n \Mod{m} \}, \quad \textrm{und} \quad (-a) := \min \{ n \geq 0 \mid n + a \equiv 0 \Mod{m} \}. $$
 \end{definition}
 
 Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphismus $\varphi:C_m\to\mathbb{Z}_m,x\mapsto\{x+km\mid k\in\mathbb{Z}\}$.
 
-\subsection{Symmetrische und Permutationsgruppen}
+\subsection{Symmetrische Gruppen und Permutationsgruppen}
 
 \begin{definition}
     Für eine Menge $A$ sei
@@ -469,29 +469,29 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
     und analog $f_{g^{-1}} \circ f_g = \id_G$, also sind diese invers zueinander und somit Bijektionen. Wir erhalten daraus nun, dass $\varphi(g)^{-1} = \varphi(g^{-1})$ gilt, also $\varphi$ ein Gruppenhomomorphismus ist und, dass $\varphi(G) \le S_G$.
 \end{proof}
 
+% \begin{definition}
+%     Sei $A$ eine Menge und $G$ eine Gruppe. Ein Homomorphismus $h: G \to S_A$ heißt \emph{(Gruppen)Aktion von G auf A}\index{Gruppe!-aktion}. Man schreibt auch $G \overset{h}{\curvearrowright} A$.
+% \end{definition}
+
+% \begin{remark}
+%    Ein Beispiel einer Gruppenaktionen von $G$ nach $G$ ist also die Linkstranslation $\varphi$ aus dem Beweis von \cref{satz:darstellungssatz-cayley-gruppen}. Eine weitere bekannte Gruppenaktion ist die Abbildung
+%    \begin{equation*}
+%         \Psi: G \to G^G, g \mapsto [\psi_g: G \to G, h \mapsto ghg^{-1}]. \tag*{(Konjugation)}
+%    \end{equation*}
+
+%    Ist $G$ abelsch, so ist $\Psi(G) = \{\id_G\}$. Außerdem ist 
+%    $$ \ker \Psi = \{g \in G \mid \psi_g = \id_G\} = \{g \in G \mid \forall h \in G: ghg^{-1} = h\} = \{g \in G \mid \forall h \in G: gh = hg\}. $$
+% \end{remark}
+
+% \begin{definition}
+%     Sei $G$ eine Gruppe. Dann ist das \emph{Zentrum von $G$}\index{Gruppe!Zentrum} definiert als
+%    $$ Z(G) := \{ g \in G \mid \forall h \in G: gh = hg\}. $$ 
+% \end{definition}
+
 \begin{definition}
-    Sei $A$ eine Menge und $G$ eine Gruppe. Ein Homomorphismus $h: G \to S_A$ heißt \emph{(Gruppen)Aktion von G auf A}\index{Gruppe!-aktion}. Man schreibt auch $G \overset{h}{\curvearrowright} A$.
-\end{definition}
-
-\begin{remark}
-   Ein Beispiel einer Gruppenaktionen von $G$ nach $G$ ist also die Linkstranslation $\varphi$ aus dem Beweis von \cref{satz:darstellungssatz-cayley-gruppen}. Eine weitere bekannte Gruppenaktion ist die Abbildung
-   \begin{equation*}
-        \Psi: G \to G^G, g \mapsto [\psi_g: G \to G, h \mapsto ghg^{-1}]. \tag*{(Konjugation)}
-   \end{equation*}
-
-   Ist $G$ abelsch, so ist $\Psi(G) = \{\id_G\}$. Außerdem ist 
-   $$ \ker \Psi = \{g \in G \mid \psi_g = \id_G\} = \{g \in G \mid \forall h \in G: ghg^{-1} = h\} = \{g \in G \mid \forall h \in G: gh = hg\}. $$
-\end{remark}
-
-\begin{definition}
-    Sei $G$ eine Gruppe. Dann ist das \emph{Zentrum von $G$}\index{Gruppe!Zentrum} definiert als
-   $$ Z(G) := \{ g \in G \mid \forall h \in G: gh = hg\}. $$ 
-\end{definition}
-
-\begin{definition}
-    Sei $n\in\mathbb{N}$ beliebig. Eine \emph{Permutation}\index{Permutation} ist eine bijektive Abbildung $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. Eine Darstellung von Permutationen ist die sogenannte \emph{Zyklenschreibweise}\index{Zyklenschreibweise}. Es wird die Permutation dabei dargestellt als
-    $$ (a_1\; \pi(a_1)\; \pi^2(a_1)\; \ldots \; \pi^{\ell_{a_1} - 1}(a_1)) (a_2\; \pi(a_2)\; \ldots \; \pi^{\ell_{a_2} - 1}(a_2)) \ldots (a_n\; \pi(a_n)\; \ldots \; \pi^{\ell_{a_n} - 1}(a_n)),$$
-    wobei die einzelnen Klammerausdrücke \emph{Zyklus (von $a_i$)} genannt werden und $\ell_{a_i}$ die kleinste natürliche Zahl ist, sodass $\pi^{\ell_{a_i}}(a_i) = a_i$ gilt. Zyklen mit $\ell_{a_i} = 1$ (Fixpunkte) können in der Zyklenschreibweise weggelassen werden.
+    Sei $n\in\mathbb{N}$ beliebig. Eine \emph{Permutation}\index{Permutation} ist eine bijektive Abbildung $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. Eine Darstellung von Permutationen ist die sogenannte \emph{Zyklenschreibweise}\index{Zyklenschreibweise}. Es wird die Permutation $\pi$ von $\{ 1, \hdots, n \}$ dabei dargestellt als
+    $$ (a_1\; \pi(a_1)\; \pi^2(a_1)\; \ldots \; \pi^{\ell_{a_1} - 1}(a_1)) (a_2\; \pi(a_2)\; \ldots \; \pi^{\ell_{a_2} - 1}(a_2)) \ldots (a_k\; \pi(a_k)\; \ldots \; \pi^{\ell_{a_k} - 1}(a_k)),$$
+    wobei die einzelnen Klammerausdrücke \emph{Zyklen (von $a_i$)} genannt werden und $\ell_{a_i}$ die kleinste natürliche Zahl ist, sodass $\pi^{\ell_{a_i}}(a_i) = a_i$ gilt. Dabei muss in dieser Darstellung jedes $k \in \{ 1, \hdots, n \}$ mit $k \neq \pi(k)$ in genau einem Zyklus vorkommen, demnach können Fixpunkte der Permutation in der Zyklenschreibweise weggelassen werden.
     Die Gruppe aller Permutationen für bestimmtes $n \in \mathbb{N}$ ist die \emph{symmetrische Gruppe mit $n$ Elementen}\index{symmetrische Gruppe} und wir schreiben auch $S_n := S_{\{1,\ldots, n\}}$.
 
     Eine \emph{Transposition}\index{Transposition} ist eine Permutation der Form $(i\; j)$.
